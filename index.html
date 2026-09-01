@@ -11,7 +11,7 @@
 <script>
 /* ==========================================================================
 
-     ★  NO SABO LIGA  —  YOUR LEAGUE DATA  ★
+     *  NO SABO LIGA  -  YOUR LEAGUE DATA  *
 
      THIS IS THE ONLY PART OF THE FILE YOU EVER NEED TO TOUCH.
      Everything below the big "STOP" banner is machinery. Leave it alone.
@@ -22,9 +22,6 @@
        - Keep every comma exactly where it is.
        - If the page goes blank after an edit, you deleted a comma,
          a quotation mark, or a curly brace. Undo and try again.
-
-     ★ TO DO: search this file for NOMBRE to find the 9 manager names
-       that still need filling in.
 
    ========================================================================== */
 
@@ -38,28 +35,105 @@ const LEAGUE = {
   week:    1,
 
   /* The commissioner's note on the front page. Change this weekly. */
-  note: "Draft is in the books. Sixteen rounds, zero autodrafts, and one guy who took two kickers on purpose. Lineups lock Sunday morning — set them or the commissioner sets them for you.",
+  note: "Draft is done and the trading started before anyone even played a game. Lineups lock Sunday morning. Set them or the commissioner sets them for you.",
 
   /* --- SPOTIFY PLAYLIST --------------------------------------------------
 
      Paste the share link to a PUBLIC Spotify playlist between the quotes.
+     In Spotify: the "..." menu, then Share, then Copy link to playlist.
 
-     To get it: open the playlist in Spotify, click the "..." menu,
-     choose Share, then Copy link to playlist. Paste it below.
-
-     Leave it empty ("") and the section shows setup instructions instead.
+     Leave it empty ("") and a setup note shows there instead.
   ------------------------------------------------------------------------- */
 
   spotify: "",
 
-  /* --- CONFERENCES AND DIVISIONS ----------------------------------------
-     Drawn at random for the first season. To re-draw next year, just change
-     the "conf" and "div" lines on each manager below.
-  ------------------------------------------------------------------------- */
+  /* --- CONFERENCES AND DIVISIONS ---------------------------------------- */
 
   structure: [
     { conf: "Rancho", divisions: ["Corridos", "Tejanas"] },
     { conf: "Ciudad", divisions: ["Dembow", "Gorras"] }
+  ],
+
+  /* --- LEAGUE NEWS -------------------------------------------------------
+
+     Newest first. Add a block whenever something happens.
+       kind   short label: "Trade", "Waivers", "Draft", "News"
+       lines  the bullet points. Use [] for none.
+       note   your commentary. Use "" for none.
+  ------------------------------------------------------------------------- */
+
+  news: [
+    {
+      date: "Mon Aug 31", kind: "Trade",
+      head: "Windy City and ChristianDiscord swap five",
+      lines: [
+        "Windy City sends Caleb Williams and Mark Andrews",
+        "ChristianDiscord sends DJ Moore, Aaron Jones Sr. and Brenton Strange",
+        "Windy City drops Tyjae Spears to waivers"
+      ],
+      note: "Keegan drafted Caleb Williams in the fourth as part of a four-Bear haul and shipped him out six days later. Steven now has three quarterbacks. They play each other in Week 2."
+    },
+    {
+      date: "Mon Aug 31", kind: "Waivers",
+      head: "First waiver run of the year",
+      lines: [
+        "Serving Punt adds Keaton Mitchell, drops Ray Davis",
+        "Sylvia's Team adds Jalen Nailor",
+        "ChristianDiscord adds MarShawn Lloyd, drops Mike Washington Jr."
+      ],
+      note: "All three claims landed at 12:04 in the morning, which tells you something about this league."
+    },
+    {
+      date: "Sat Aug 29", kind: "Draft",
+      head: "Draft completed",
+      lines: [
+        "Sixteen rounds, one hundred ninety-two picks, zero autodrafts"
+      ],
+      note: "League rules updated the same day. Full board is in the draft section below."
+    }
+  ],
+
+  /* --- SCHEDULE ----------------------------------------------------------
+
+     Add a week block as the season goes. Team names must match the team
+     names in the manager list exactly or the icons won't show up.
+  ------------------------------------------------------------------------- */
+
+  schedule: [
+    {
+      week: 1,
+      games: [
+        { away:"Windy City Winners", home:"Sundae Best",
+          line:"Keegan traded away a quarter of his Bears collection two days before kickoff. Tiffany has Derrick Henry and a clear conscience." },
+        { away:"ChristianDiscord no cu$$ing plz", home:"Go Birds",
+          line:"Eric has Lamar and Mahomes. Steven just traded for Caleb Williams. Five quarterbacks between them and two starting slots." },
+        { away:"Hugh Jazz Mangoes", home:"Sylvia's Team",
+          line:"The best roster in the liga against the woman who took a kicker in the eighth. One of these is a strategy." },
+        { away:"Edwin's Annihilators", home:"Hup Hup Hike Armada",
+          line:"The 1.01 against the 1.12. Monica got Saquon, Edwin got Jeanty and Cook. Week one settles nothing but it will feel like it does." },
+        { away:"CTE SQUAD", home:"Serving Punt",
+          line:"Two kickers on one roster against a man carrying three tight ends. Somebody's bench outscores their lineup today." },
+        { away:"Esme's Excellent Team", home:"Ballin' Ass Ballers",
+          line:"Five running backs against the guy who took Josh Allen in the second. Ground game versus air raid." }
+      ]
+    },
+    {
+      week: 2,
+      games: [
+        { away:"ChristianDiscord no cu$$ing plz", home:"Windy City Winners",
+          line:"Three days after the trade they play each other. Caleb Williams and Mark Andrews line up against DJ Moore, Aaron Jones and Brenton Strange. Somebody finds out early." },
+        { away:"Sundae Best", home:"Hugh Jazz Mangoes",
+          line:"Sunday best against a team named for a joke. Both of them drafted like they meant it." },
+        { away:"Go Birds", home:"Edwin's Annihilators",
+          line:"Eric has the Eagles defense and Jake Elliott. Edwin has Hurts and DeVonta. Philadelphia is playing itself." },
+        { away:"Sylvia's Team", home:"CTE SQUAD",
+          line:"The eighth-round kicker against the man who drafted two of them. Whatever happens here, the position gets settled." },
+        { away:"Hup Hup Hike Armada", home:"Esme's Excellent Team",
+          line:"Monica against the only team in the liga with two managers on it. Twice the opinions, same number of lineup slots." },
+        { away:"Serving Punt", home:"Ballin' Ass Ballers",
+          line:"Kaleigh's bench is deeper than most people's starters. Chris has Josh Allen and a shrug." }
+      ]
+    }
   ],
 
   /* --- THE MANAGERS ------------------------------------------------------
@@ -67,22 +141,23 @@ const LEAGUE = {
        num      card number in the deck
        card     their loteria name
        icon     any emoji
-       name     REAL NAME — replace the ones that say NOMBRE
+       name     manager first name
        team     team name
        conf     "Rancho" or "Ciudad"
        div      "Corridos", "Tejanas", "Dembow", or "Gorras"
        slot     draft position, 1 through 12
        verso    their little riddle
-       bio      draft recap and trash talk
+       bio      recap and trash talk
        w l t    wins, losses, ties
        pf pa    points for, points against
-       roster   all 16 picks, in round order
+       roster   current roster. The "rd" value is the round they were
+                drafted, or "TR" if acquired by trade, "WW" off waivers.
   ------------------------------------------------------------------------- */
 
   managers: [
     {
       num: 1, card: "El Barco", icon: "\u2693",
-      name: "NOMBRE", team: "Hup Hup Hike Armada",
+      name: "Monica", team: "Hup Hup Hike Armada",
       conf: "Rancho", div: "Corridos", slot: 1,
       verso: "Salio primero del puerto y se llevo a Saquon. Everybody else got the leftovers.",
       bio: "Had the 1.01 and did the obvious thing with it. Then stacked two tight ends and two quarterbacks like the armada needed backups for the backups.",
@@ -108,7 +183,7 @@ const LEAGUE = {
     },
     {
       num: 2, card: "El Casco", icon: "\uD83E\uDE96",
-      name: "NOMBRE", team: "CTE SQUAD",
+      name: "Matt H.", team: "CTE SQUAD",
       conf: "Ciudad", div: "Dembow", slot: 2,
       verso: "Drafted two kickers on purpose. Nadie le ha preguntado por que.",
       bio: "Took Jason Myers in the tenth and then took Matt Gay in the twelfth. Two kickers, one kicker slot. Also grabbed Cooper Kupp in the fourteenth like it was 2021.",
@@ -134,10 +209,10 @@ const LEAGUE = {
     },
     {
       num: 3, card: "El Saque", icon: "\uD83C\uDFD0",
-      name: "NOMBRE", team: "Serving Punt",
+      name: "Kaleigh", team: "Serving Punt",
       conf: "Rancho", div: "Tejanas", slot: 3,
       verso: "Sirve el balon y te reta a devolverlo. Good luck with that.",
-      bio: "Took Bijan at 1.03 and then built the deepest bench in the liga. Two quarterbacks, three tight ends, and a running back room nobody wants to face in November.",
+      bio: "Took Bijan at 1.03 and then built the deepest bench in the liga. Two quarterbacks, three tight ends, and a running back room nobody wants to face in November. Already worked the waiver wire before Week 1.",
       w: 0, l: 0, t: 0, pf: 0, pa: 0,
       roster: [
         { rd:1,  pos:"RB",  player:"Bijan Robinson",      team:"ATL" },
@@ -155,15 +230,15 @@ const LEAGUE = {
         { rd:13, pos:"WR",  player:"Jakobi Meyers",       team:"JAX" },
         { rd:14, pos:"K",   player:"Chris Boswell",       team:"PIT" },
         { rd:15, pos:"WR",  player:"Calvin Ridley",       team:"TEN" },
-        { rd:16, pos:"RB",  player:"Ray Davis",           team:"BUF" }
+        { rd:"WW", pos:"RB", player:"Keaton Mitchell",    team:"LAC" }
       ]
     },
     {
       num: 4, card: "La Bota", icon: "\uD83D\uDC62",
-      name: "Esme", team: "Esme's Excellent Team",
+      name: "Esme & Edwin", team: "Esme's Excellent Team",
       conf: "Ciudad", div: "Gorras", slot: 4,
       verso: "Se cargo de running backs como si la temporada fuera una sola carrera.",
-      bio: "Jonathan Taylor, Omarion Hampton, Breece Hall, Chuba Hubbard, Alvin Kamara. Five running backs and a plan to run the ball until somebody stops her.",
+      bio: "Jonathan Taylor, Omarion Hampton, Breece Hall, Chuba Hubbard, Alvin Kamara. Five running backs and a plan to run the ball until somebody stops them. The only team in the liga with two managers, which doubles the opinions and not the lineup slots.",
       w: 0, l: 0, t: 0, pf: 0, pa: 0,
       roster: [
         { rd:1,  pos:"RB",  player:"Jonathan Taylor",     team:"IND" },
@@ -207,12 +282,13 @@ const LEAGUE = {
         { rd:13, pos:"RB",  player:"Tyler Allgeier",      team:"ARI" },
         { rd:14, pos:"QB",  player:"Bryce Young",         team:"CAR" },
         { rd:15, pos:"TE",  player:"Gunnar Helm",         team:"TEN" },
-        { rd:16, pos:"WR",  player:"Keenan Allen",        team:"IND" }
+        { rd:16, pos:"WR",  player:"Keenan Allen",        team:"IND" },
+        { rd:"WW", pos:"WR", player:"Jalen Nailor",       team:"LV"  }
       ]
     },
     {
       num: 6, card: "El Mango", icon: "\uD83E\uDD6D",
-      name: "NOMBRE", team: "Hugh Jazz Mangoes",
+      name: "Matt B.", team: "Hugh Jazz Mangoes",
       conf: "Ciudad", div: "Dembow", slot: 6,
       verso: "Le puso al equipo un nombre de chiste y luego armo el mejor roster de la liga.",
       bio: "Named the team for a bit and then quietly drafted JSN, Achane, Nico Collins, Bucky Irving and Ladd McConkey in five straight rounds. The joke is on everyone else.",
@@ -238,33 +314,33 @@ const LEAGUE = {
     },
     {
       num: 7, card: "La Bandera", icon: "\uD83D\uDEA9",
-      name: "NOMBRE", team: "Windy City Winners",
+      name: "Keegan", team: "Windy City Winners",
       conf: "Ciudad", div: "Gorras", slot: 7,
-      verso: "Cuatro Bears en un solo roster. Homer no esta en espanol pero ya sabes.",
-      bio: "Colston Loveland, Caleb Williams, Rome Odunze and Cairo Santos. Four Chicago Bears drafted with conviction. Also carries three quarterbacks and two kickers, which is its own kind of statement.",
+      verso: "Cuatro Bears en el draft, tres despues del trade. La bandera se encogio.",
+      bio: "Drafted four Chicago Bears with total conviction and then traded Caleb Williams away six days later. Came back with DJ Moore, Aaron Jones and Brenton Strange, and still has Loveland, Odunze and Santos. The homer instinct survived, barely.",
       w: 0, l: 0, t: 0, pf: 0, pa: 0,
       roster: [
         { rd:1,  pos:"WR",  player:"Puka Nacua",          team:"LAR" },
         { rd:2,  pos:"TE",  player:"Colston Loveland",    team:"CHI" },
         { rd:3,  pos:"RB",  player:"Cam Skattebo",        team:"NYG" },
-        { rd:4,  pos:"QB",  player:"Caleb Williams",      team:"CHI" },
         { rd:5,  pos:"WR",  player:"Rome Odunze",         team:"CHI" },
         { rd:6,  pos:"QB",  player:"Justin Herbert",      team:"LAC" },
         { rd:7,  pos:"RB",  player:"Rhamondre Stevenson", team:"NE"  },
-        { rd:8,  pos:"TE",  player:"Mark Andrews",        team:"BAL" },
         { rd:9,  pos:"K",   player:"Ka'imi Fairbairn",    team:"HOU" },
         { rd:10, pos:"DEF", player:"Lions D/ST",          team:"DET" },
         { rd:11, pos:"WR",  player:"Jayden Reed",         team:"GB"  },
-        { rd:12, pos:"RB",  player:"Tyjae Spears",        team:"TEN" },
         { rd:13, pos:"QB",  player:"Daniel Jones",        team:"IND" },
         { rd:14, pos:"K",   player:"Cairo Santos",        team:"CHI" },
         { rd:15, pos:"WR",  player:"Deebo Samuel Sr.",    team:"SF"  },
-        { rd:16, pos:"WR",  player:"Rashid Shaheed",      team:"SEA" }
+        { rd:16, pos:"WR",  player:"Rashid Shaheed",      team:"SEA" },
+        { rd:"TR", pos:"WR", player:"DJ Moore",           team:"BUF" },
+        { rd:"TR", pos:"RB", player:"Aaron Jones Sr.",    team:"MIN" },
+        { rd:"TR", pos:"TE", player:"Brenton Strange",    team:"JAX" }
       ]
     },
     {
       num: 8, card: "El Valiente", icon: "\uD83D\uDDE1\uFE0F",
-      name: "NOMBRE", team: "Ballin' Ass Ballers",
+      name: "Chris", team: "Ballin' Ass Ballers",
       conf: "Rancho", div: "Tejanas", slot: 8,
       verso: "Josh Allen en la segunda, Kelce en la trece. Sin miedo, sin plan.",
       bio: "Took Josh Allen in the second, earlier than anyone else touched a quarterback, then took Travis Kelce in the thirteenth on pure name recognition. Somewhere in the middle is a very good football team.",
@@ -290,9 +366,9 @@ const LEAGUE = {
     },
     {
       num: 9, card: "El Catrin", icon: "\uD83C\uDFA9",
-      name: "NOMBRE", team: "Sundae Best",
+      name: "Tiffany", team: "Sundae Best",
       conf: "Ciudad", div: "Dembow", slot: 9,
-      verso: "Bien vestido para la iglesia y luego draftea a Derrick Henry para el trabajo sucio.",
+      verso: "Bien vestida para la iglesia y luego draftea a Derrick Henry para el trabajo sucio.",
       bio: "Derrick Henry and Justin Jefferson back to back is about as clean as a first two rounds gets. Waited until the fifteenth for a kicker, which is the correct number of rounds to wait.",
       w: 0, l: 0, t: 0, pf: 0, pa: 0,
       roster: [
@@ -316,10 +392,10 @@ const LEAGUE = {
     },
     {
       num: 10, card: "El Diablito", icon: "\uD83D\uDE08",
-      name: "NOMBRE", team: "ChristianDiscord no cu$$ing plz",
+      name: "Steven", team: "ChristianDiscord no cu$$ing plz",
       conf: "Ciudad", div: "Gorras", slot: 10,
       verso: "No cussing in the chat. Las ofertas de trade son otra historia.",
-      bio: "Amon-Ra and CeeDee in the first two rounds is a genuinely mean pair of receivers. Then loaded up on four Raiders late, which is either a deep read or a very specific kind of loyalty.",
+      bio: "Amon-Ra and CeeDee in the first two rounds is a genuinely mean pair of receivers. Then made the first trade of the year, gave up three players for Caleb Williams and Mark Andrews, and now carries three quarterbacks. No cussing in the chat, but the trade offers are another story.",
       w: 0, l: 0, t: 0, pf: 0, pa: 0,
       roster: [
         { rd:1,  pos:"WR",  player:"Amon-Ra St. Brown",   team:"DET" },
@@ -327,22 +403,21 @@ const LEAGUE = {
         { rd:3,  pos:"RB",  player:"Kenneth Walker III",  team:"KC"  },
         { rd:4,  pos:"RB",  player:"Travis Etienne Jr.",  team:"NO"  },
         { rd:5,  pos:"WR",  player:"Jaylen Waddle",       team:"DEN" },
-        { rd:6,  pos:"WR",  player:"DJ Moore",            team:"BUF" },
         { rd:7,  pos:"RB",  player:"TreVeyon Henderson",  team:"NE"  },
         { rd:8,  pos:"QB",  player:"Baker Mayfield",      team:"TB"  },
-        { rd:9,  pos:"RB",  player:"Aaron Jones Sr.",     team:"MIN" },
         { rd:10, pos:"TE",  player:"Isaiah Likely",       team:"NYG" },
         { rd:11, pos:"K",   player:"Eddy Pineiro",        team:"SF"  },
         { rd:12, pos:"DEF", player:"Patriots D/ST",       team:"NE"  },
-        { rd:13, pos:"TE",  player:"Brenton Strange",     team:"JAX" },
         { rd:14, pos:"QB",  player:"Fernando Mendoza",    team:"LV"  },
         { rd:15, pos:"WR",  player:"Tre Tucker",          team:"LV"  },
-        { rd:16, pos:"RB",  player:"Mike Washington Jr.", team:"LV"  }
+        { rd:"TR", pos:"QB", player:"Caleb Williams",     team:"CHI" },
+        { rd:"TR", pos:"TE", player:"Mark Andrews",       team:"BAL" },
+        { rd:"WW", pos:"RB", player:"MarShawn Lloyd",     team:"GB"  }
       ]
     },
     {
       num: 11, card: "El Pajaro", icon: "\uD83E\uDD85",
-      name: "NOMBRE", team: "Go Birds",
+      name: "Eric", team: "Go Birds",
       conf: "Rancho", div: "Corridos", slot: 11,
       verso: "Lamar en la tercera, Mahomes en la once. Dos quarterbacks, un solo trono.",
       bio: "Drafted Lamar Jackson in the third and then took Patrick Mahomes in the eleventh anyway. Also holds the Eagles defense, Jake Elliott and Makai Lemon, so the team name is not decorative.",
@@ -394,22 +469,19 @@ const LEAGUE = {
     }
   ],
 
-  /* --- DRAFT NOTES -------------------------------------------------------
-     Things worth remembering about draft day. Add or delete freely.
-  ------------------------------------------------------------------------- */
+  /* --- DRAFT NOTES ------------------------------------------------------- */
 
   draftNotes: [
     { head: "Two kickers, one slot", body: "CTE SQUAD took Jason Myers in the tenth and Matt Gay in the twelfth. Windy City Winners did the same thing with Fairbairn and Cairo Santos. Nobody has offered an explanation." },
     { head: "The eighth-round kicker", body: "Sylvia took Brandon Aubrey four rounds before anyone else touched the position. It is either the best pick of the draft or the worst and there is no in between." },
     { head: "Two thrones, one team", body: "Go Birds drafted Lamar Jackson in the third and then took Patrick Mahomes in the eleventh. One of them is going to spend the season on a bench." },
     { head: "The cruelest turn", body: "Edwin's Annihilators had the 1.12 and the 2.01 and turned it into Ashton Jeanty and James Cook without waiting more than a minute." },
-    { head: "Homer of the year", body: "Windy City Winners drafted four Chicago Bears: Colston Loveland, Caleb Williams, Rome Odunze and Cairo Santos. The team name was a warning." },
+    { head: "Homer of the year", body: "Windy City Winners drafted four Chicago Bears: Colston Loveland, Caleb Williams, Rome Odunze and Cairo Santos. Six days later Caleb Williams was traded away, so the record stands at three." },
     { head: "Ground and pound", body: "Esme's Excellent Team came away with Jonathan Taylor, Omarion Hampton, Breece Hall, Chuba Hubbard and Alvin Kamara. Five running backs and no apologies." }
   ],
 
   /* --- LEAGUE RECORD BOOK ------------------------------------------------
-     Blank for year one. As records happen, fill in holder, value and year.
-     Anything left empty shows as "sin dueno" on the site.
+     Blank for year one. Fill in holder, value and year as they happen.
   ------------------------------------------------------------------------- */
 
   records: [
@@ -460,22 +532,15 @@ const LEAGUE = {
      ###  S T O P  ###
 
      You do not need to read or change anything past this point.
-     This is the code that turns your data above into the website.
 
      ========================================================================== -->
 
 <style>
 :root{
-  --tinta:#141138;
-  --tinta-2:#1d1a52;
-  --tinta-3:#0d0b26;
-  --papel:#f7ead0;
-  --papel-2:#efdcb8;
-  --rosa:#e01a76;
-  --oro:#f2a93b;
-  --jade:#0f9d6b;
-  --sangre:#c42a2a;
-  --azul:#2f6fc0;
+  --tinta:#141138; --tinta-2:#1d1a52; --tinta-3:#0d0b26;
+  --papel:#f7ead0; --papel-2:#efdcb8;
+  --rosa:#e01a76; --oro:#f2a93b; --jade:#0f9d6b;
+  --sangre:#c42a2a; --azul:#2f6fc0;
   --linea:rgba(20,17,56,.22);
   --display:"Alfa Slab One", Georgia, serif;
   --body:"Archivo","Helvetica Neue",Arial,sans-serif;
@@ -502,71 +567,117 @@ body{
 
 nav{position:sticky; top:0; z-index:60; background:rgba(13,11,38,.94);
   backdrop-filter:blur(8px); border-bottom:2px solid var(--oro)}
-nav .wrap{display:flex; align-items:center; gap:24px; height:60px}
+nav .wrap{display:flex; align-items:center; gap:22px; height:60px}
 .brand{font-family:var(--display); font-size:1.02rem; color:var(--oro); white-space:nowrap}
-.navlinks{display:flex; gap:20px; margin-left:auto; flex-wrap:wrap}
-.navlinks a{color:var(--papel); text-decoration:none; font-weight:600; font-size:.88rem;
+.navlinks{display:flex; gap:18px; margin-left:auto; flex-wrap:wrap}
+.navlinks a{color:var(--papel); text-decoration:none; font-weight:600; font-size:.86rem;
   padding:4px 2px; border-bottom:2px solid transparent}
 .navlinks a:hover,.navlinks a:focus-visible{border-bottom-color:var(--rosa); color:#fff}
 
-header.hero{padding:56px 0 64px; text-align:center}
-.hero h1{font-family:var(--display); font-size:clamp(2.9rem,10vw,6.4rem); line-height:.92;
+header.hero{padding:52px 0 60px; text-align:center}
+.hero h1{font-family:var(--display); font-size:clamp(2.8rem,9.4vw,6rem); line-height:.92;
   margin:0; color:var(--oro); text-shadow:3px 3px 0 var(--rosa), 6px 6px 0 var(--tinta-3)}
-.hero .tagline{font-size:1.1rem; margin:20px auto 0; max-width:36ch;
+.hero .tagline{font-size:1.08rem; margin:18px auto 0; max-width:36ch;
   color:var(--papel-2); font-style:italic}
-.season-chip{display:inline-block; margin-top:26px; background:var(--jade); color:#fff;
+.season-chip{display:inline-block; margin-top:22px; background:var(--jade); color:#fff;
   font-weight:700; padding:6px 18px; border:2px solid var(--tinta-3);
-  box-shadow:3px 3px 0 var(--tinta-3); font-size:.92rem}
-.note{max-width:640px; margin:44px auto 0; background:var(--papel); color:var(--tinta);
-  border:3px solid var(--tinta-3); box-shadow:7px 7px 0 var(--rosa);
-  padding:22px 24px; text-align:left}
-.note h3{font-family:var(--display); font-size:1rem; margin:0 0 8px; color:var(--sangre)}
-.note p{margin:0; font-size:1rem}
+  box-shadow:3px 3px 0 var(--tinta-3); font-size:.9rem}
 
-section{padding:76px 0}
-.sec-head{margin-bottom:34px}
+/* note + player side by side */
+.hero-duo{display:grid; gap:22px; grid-template-columns:1.35fr 1fr;
+  align-items:start; margin-top:42px; text-align:left}
+@media (max-width:880px){.hero-duo{grid-template-columns:1fr}}
+.note{background:var(--papel); color:var(--tinta); border:3px solid var(--tinta-3);
+  box-shadow:7px 7px 0 var(--rosa); padding:22px 24px}
+.note h3{font-family:var(--display); font-size:1rem; margin:0 0 8px; color:var(--sangre)}
+.note p{margin:0; font-size:.99rem}
+.player h3{font-family:var(--display); font-size:1rem; margin:0 0 10px; color:var(--oro)}
+.player iframe{border:3px solid var(--oro); display:block; width:100%;
+  box-shadow:7px 7px 0 var(--tinta-3)}
+.plempty{background:rgba(247,234,208,.06); border:3px dashed rgba(247,234,208,.4);
+  padding:18px 20px; font-size:.88rem; color:var(--papel-2)}
+.plempty code{background:rgba(247,234,208,.14); padding:1px 5px; font-size:.9em}
+
+section{padding:72px 0}
+.sec-head{margin-bottom:32px}
 .sec-head h2{font-family:var(--display); font-size:clamp(1.8rem,4.4vw,2.7rem);
   margin:0; color:var(--oro)}
 .sec-head p{margin:8px 0 0; color:var(--papel-2); max-width:62ch}
-.sub-h{font-family:var(--display); color:var(--papel); font-size:1.12rem; margin:0 0 14px}
+.sub-h{font-family:var(--display); color:var(--papel); font-size:1.1rem; margin:0 0 14px}
 
-.conf{margin-bottom:38px}
-.conf-name{font-family:var(--display); font-size:1.45rem; color:var(--papel);
+.conf{margin-bottom:36px}
+.conf-name{font-family:var(--display); font-size:1.42rem; color:var(--papel);
   margin:0 0 4px; display:flex; align-items:center; gap:12px}
 .conf-name::after{content:""; flex:1; height:3px; background:var(--rosa)}
 .conf.ciudad .conf-name::after{background:var(--azul)}
-.conf-sub{margin:0 0 18px; font-size:.85rem; color:var(--papel-2); opacity:.8}
+.conf-sub{margin:0 0 18px; font-size:.84rem; color:var(--papel-2); opacity:.8}
 .divgrid{display:grid; gap:20px; grid-template-columns:1fr 1fr}
 @media (max-width:860px){.divgrid{grid-template-columns:1fr}}
 .divbox{background:var(--papel); color:var(--tinta); border:3px solid var(--tinta-3);
   box-shadow:6px 6px 0 var(--tinta-3); overflow-x:auto}
-.divbox h4{font-family:var(--display); font-size:.95rem; margin:0;
+.divbox h4{font-family:var(--display); font-size:.94rem; margin:0;
   background:var(--tinta-3); color:var(--oro); padding:11px 14px}
 table{width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums}
-thead th{background:var(--papel-2); color:var(--tinta); font-size:.72rem;
+thead th{background:var(--papel-2); color:var(--tinta); font-size:.71rem;
   font-weight:700; padding:8px 10px; text-align:left; white-space:nowrap;
   border-bottom:2px solid var(--tinta-3)}
 thead th.n,tbody td.n{text-align:right}
-tbody td{padding:11px 10px; border-bottom:1px solid var(--linea); font-size:.9rem}
+tbody td{padding:11px 10px; border-bottom:1px solid var(--linea); font-size:.89rem}
 tbody tr:last-child td{border-bottom:none}
 tbody tr:hover{background:rgba(224,26,118,.09)}
 .tm-name{font-weight:700; display:block; line-height:1.25}
-.mg-name{font-size:.77rem; opacity:.65}
+.mg-name{font-size:.76rem; opacity:.65}
 
+/* schedule */
+.wk{margin-bottom:34px}
+.wk-h{font-family:var(--display); color:var(--oro); font-size:1.22rem; margin:0 0 16px;
+  display:flex; align-items:center; gap:12px}
+.wk-h::after{content:""; flex:1; height:2px; background:rgba(242,169,59,.35)}
+.games{display:grid; gap:16px; grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.game{background:var(--papel); color:var(--tinta); border:3px solid var(--tinta-3);
+  box-shadow:5px 5px 0 var(--azul); display:flex; flex-direction:column}
+.game .vs{display:flex; align-items:stretch; border-bottom:2px solid var(--tinta-3)}
+.game .side{flex:1; padding:13px 14px; display:flex; gap:9px; align-items:center; min-width:0}
+.game .side.h{background:var(--papel-2); justify-content:flex-end; text-align:right}
+.game .ic{font-size:1.3rem; line-height:1; flex-shrink:0}
+.game .tn{font-weight:700; font-size:.85rem; line-height:1.2; min-width:0;
+  overflow-wrap:anywhere}
+.game .tn span{display:block; font-weight:400; font-size:.72rem; opacity:.6}
+.game .at{background:var(--tinta-3); color:var(--oro); font-family:var(--display);
+  font-size:.68rem; display:grid; place-items:center; padding:0 9px; flex-shrink:0}
+.game .ln{padding:14px 16px; font-size:.87rem; font-style:italic; margin:0}
+
+/* news */
+.newsfeed{display:grid; gap:18px; grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
+.nitem{background:var(--papel); color:var(--tinta); border:3px solid var(--tinta-3);
+  box-shadow:6px 6px 0 var(--rosa); padding:0; display:flex; flex-direction:column}
+.nitem .nh{background:var(--tinta-3); padding:9px 15px; display:flex;
+  justify-content:space-between; gap:10px; align-items:center}
+.nitem .kind{font-family:var(--display); color:var(--oro); font-size:.75rem}
+.nitem .dt{font-size:.72rem; color:var(--papel-2); opacity:.75}
+.nitem .nb{padding:16px 17px}
+.nitem h4{font-family:var(--display); font-size:1rem; margin:0 0 10px; color:var(--sangre)}
+.nitem ul{margin:0 0 12px; padding-left:17px; font-size:.87rem}
+.nitem ul li{margin-bottom:4px}
+.nitem .cm{margin:0; font-size:.87rem; border-top:1px solid var(--linea);
+  padding-top:11px; font-style:italic}
+
+/* draft */
 .draft-order{display:grid; gap:10px; grid-template-columns:repeat(auto-fill,minmax(215px,1fr));
-  margin-bottom:40px}
+  margin-bottom:38px}
 .dpick{background:rgba(247,234,208,.07); border:1px solid rgba(247,234,208,.2);
   padding:10px 12px; display:flex; gap:11px; align-items:center}
-.dpick .sl{font-family:var(--display); color:var(--oro); font-size:1.05rem;
+.dpick .sl{font-family:var(--display); color:var(--oro); font-size:1.02rem;
   min-width:26px; text-align:center}
-.dpick .dt{font-size:.83rem; font-weight:600; line-height:1.3}
-.dpick .dp{font-size:.74rem; opacity:.62; display:block; font-weight:400}
+.dpick .dt{font-size:.82rem; font-weight:600; line-height:1.3}
+.dpick .dp{font-size:.73rem; opacity:.62; display:block; font-weight:400}
 .notes{display:grid; gap:16px; grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
 .nbox{background:var(--papel); color:var(--tinta); border:3px solid var(--tinta-3);
   box-shadow:5px 5px 0 var(--oro); padding:17px 19px}
-.nbox h4{font-family:var(--display); font-size:.94rem; margin:0 0 7px; color:var(--sangre)}
-.nbox p{margin:0; font-size:.89rem}
+.nbox h4{font-family:var(--display); font-size:.93rem; margin:0 0 7px; color:var(--sangre)}
+.nbox p{margin:0; font-size:.88rem}
 
+/* deck */
 .deck{display:grid; gap:22px; grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
 .lcard{position:relative; background:var(--papel); color:var(--tinta);
   border:3px solid var(--tinta-3); box-shadow:5px 5px 0 var(--tinta-3);
@@ -576,28 +687,28 @@ tbody tr:hover{background:rgba(224,26,118,.09)}
   box-shadow:9px 9px 0 var(--rosa); outline:none}
 .lcard:focus-visible{border-color:var(--rosa)}
 .lcard .num{position:absolute; top:8px; left:8px; background:var(--tinta-3);
-  color:var(--oro); font-family:var(--display); font-size:.76rem;
+  color:var(--oro); font-family:var(--display); font-size:.75rem;
   width:26px; height:26px; display:grid; place-items:center}
 .lcard .conftag{position:absolute; top:8px; right:8px; background:var(--rosa);
-  color:#fff; font-size:.62rem; font-weight:700; padding:3px 7px; letter-spacing:.3px}
+  color:#fff; font-size:.61rem; font-weight:700; padding:3px 7px; letter-spacing:.3px}
 .lcard.ciudad .conftag{background:var(--azul)}
-.lcard .art{font-size:3.5rem; line-height:1; display:grid; place-items:center;
+.lcard .art{font-size:3.4rem; line-height:1; display:grid; place-items:center;
   padding:38px 10px 18px;
   background:repeating-linear-gradient(45deg,rgba(20,17,56,.05) 0 8px,transparent 8px 16px),var(--papel-2);
   border-bottom:2px solid var(--tinta-3)}
-.lcard .cardname{font-family:var(--display); font-size:1rem; padding:10px 12px 6px;
+.lcard .cardname{font-family:var(--display); font-size:.99rem; padding:10px 12px 6px;
   color:var(--sangre); text-align:center}
 .lcard .who{padding:0 12px 14px; text-align:center}
-.lcard .who .n{font-weight:700; font-size:.88rem; display:block}
-.lcard .who .n.todo{font-style:italic; font-weight:400; opacity:.42}
-.lcard .who .t{font-size:.79rem; opacity:.7; display:block}
-.lcard .rec{background:var(--tinta-3); color:var(--papel); font-size:.76rem;
+.lcard .who .n{font-weight:700; font-size:.87rem; display:block}
+.lcard .who .t{font-size:.78rem; opacity:.7; display:block; overflow-wrap:anywhere}
+.lcard .rec{background:var(--tinta-3); color:var(--papel); font-size:.75rem;
   font-weight:700; padding:7px 12px; text-align:center; margin-top:auto}
 @media (prefers-reduced-motion:no-preference){
   .deck.deal .lcard{animation:deal .42s cubic-bezier(.2,.8,.3,1) backwards}
   @keyframes deal{from{opacity:0; transform:translateY(22px) rotate(-3deg)}to{opacity:1; transform:none}}
 }
 
+/* modal */
 .overlay{position:fixed; inset:0; z-index:100; background:rgba(8,6,22,.84);
   display:none; align-items:flex-start; justify-content:center;
   padding:28px 18px; overflow-y:auto}
@@ -610,41 +721,36 @@ tbody tr:hover{background:rgba(224,26,118,.09)}
 .sheet .close:hover{background:var(--tinta-3)}
 .sheet-top{background:var(--papel-2); border-bottom:3px solid var(--tinta-3);
   padding:26px 24px; display:flex; gap:18px; align-items:center}
-.sheet-top .art{font-size:3.1rem; line-height:1}
+.sheet-top .art{font-size:3rem; line-height:1}
 .sheet-top .cardname{font-family:var(--display); color:var(--sangre);
-  font-size:1.1rem; margin:0}
-.sheet-top h3{font-family:var(--display); font-size:1.42rem; margin:2px 0 0}
-.sheet-top h3.todo{font-style:italic; opacity:.42; font-family:var(--body); font-weight:400}
-.sheet-top .t{color:var(--azul); font-weight:700; font-size:.86rem}
+  font-size:1.08rem; margin:0}
+.sheet-top h3{font-family:var(--display); font-size:1.4rem; margin:2px 0 0}
+.sheet-top .t{color:var(--azul); font-weight:700; font-size:.84rem}
 .sheet-body{padding:24px}
 .verso{border-left:4px solid var(--oro); padding:4px 0 4px 14px; margin:0 0 20px;
   font-style:italic; font-size:1rem}
-.sheet-body h4{font-family:var(--display); font-size:.89rem; margin:24px 0 10px; color:var(--sangre)}
+.sheet-body h4{font-family:var(--display); font-size:.88rem; margin:24px 0 10px; color:var(--sangre)}
 .sheet-body h4:first-of-type{margin-top:0}
-.sheet-body p{margin:0; font-size:.94rem}
+.sheet-body h4 em{font-family:var(--body); font-style:normal; font-weight:400;
+  opacity:.55; font-size:.9em}
+.sheet-body p{margin:0; font-size:.93rem}
 .roster{width:100%; border-collapse:collapse}
-.roster td{padding:6px 8px; border-bottom:1px solid var(--linea); font-size:.87rem}
+.roster td{padding:6px 8px; border-bottom:1px solid var(--linea); font-size:.86rem}
 .roster tr:last-child td{border-bottom:none}
-.roster .rd{width:34px; font-size:.71rem; opacity:.45; text-align:right}
+.roster .rd{width:36px; font-size:.7rem; opacity:.45; text-align:right}
+.roster .rd.acq{opacity:1; color:var(--rosa); font-weight:700}
 .roster .p{font-weight:700; background:var(--papel-2); width:46px;
-  text-align:center; font-size:.71rem}
-.roster .tt{text-align:right; opacity:.55; font-size:.77rem; width:44px}
+  text-align:center; font-size:.7rem}
+.roster .tt{text-align:right; opacity:.55; font-size:.76rem; width:44px}
 
 .recbook{list-style:none; margin:0; padding:0; max-width:720px}
 .recbook li{display:flex; justify-content:space-between; gap:14px; align-items:baseline;
   padding:14px 0; border-bottom:1px dashed rgba(247,234,208,.26)}
 .recbook li:last-child{border-bottom:none}
-.recbook .lb{font-size:.94rem}
-.recbook .lb span{display:block; font-size:.78rem; opacity:.55}
-.recbook .vl{font-family:var(--display); color:var(--rosa); font-size:1.12rem; white-space:nowrap}
+.recbook .lb{font-size:.93rem}
+.recbook .lb span{display:block; font-size:.77rem; opacity:.55}
+.recbook .vl{font-family:var(--display); color:var(--rosa); font-size:1.1rem; white-space:nowrap}
 .recbook .vl.empty{color:var(--papel-2); opacity:.3; font-size:1.3rem}
-
-.plbox{max-width:720px}
-.plbox iframe{border:3px solid var(--oro); display:block; width:100%}
-.plempty{background:var(--papel); color:var(--tinta); border:3px dashed var(--tinta-3);
-  padding:22px 24px; font-size:.93rem}
-.plempty b{display:block; font-family:var(--display); color:var(--sangre); margin-bottom:6px}
-.plempty code{background:var(--papel-2); padding:1px 5px; font-size:.88em}
 
 .rules{max-width:760px}
 details.rule{background:var(--papel); color:var(--tinta); border:3px solid var(--tinta-3);
@@ -656,18 +762,18 @@ details.rule summary::after{content:"+"; font-family:var(--display);
   color:var(--sangre); font-size:1.3rem; line-height:1}
 details.rule[open] summary::after{content:"\2013"}
 details.rule[open] summary{border-bottom:2px solid var(--linea)}
-details.rule .rbody{padding:15px 18px 18px; font-size:.94rem}
+details.rule .rbody{padding:15px 18px 18px; font-size:.93rem}
 details.rule summary:focus-visible{outline:3px solid var(--rosa); outline-offset:-3px}
 
-footer{padding:44px 0 60px; text-align:center; color:var(--papel-2); font-size:.85rem}
+footer{padding:44px 0 60px; text-align:center; color:var(--papel-2); font-size:.84rem}
 footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
   display:block; margin-bottom:8px}
 
 @media (max-width:640px){
   body{font-size:16px}
-  section{padding:56px 0}
-  nav .wrap{height:auto; padding-top:10px; padding-bottom:10px; flex-wrap:wrap; gap:10px 16px}
-  .navlinks{margin-left:0; gap:14px}
+  section{padding:54px 0}
+  nav .wrap{height:auto; padding-top:10px; padding-bottom:10px; flex-wrap:wrap; gap:10px 15px}
+  .navlinks{margin-left:0; gap:13px}
 }
 </style>
 </head>
@@ -680,10 +786,11 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
     <span class="brand" id="navBrand">No Sabo Liga</span>
     <div class="navlinks">
       <a href="#standings">Standings</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#news">News</a>
       <a href="#draft">Draft</a>
       <a href="#managers">Managers</a>
       <a href="#records">Records</a>
-      <a href="#playlist">Playlist</a>
       <a href="#rules">Rules</a>
     </div>
   </div>
@@ -694,9 +801,15 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
     <h1 id="hName">No Sabo Liga</h1>
     <p class="tagline" id="hTag"></p>
     <div class="season-chip" id="hChip"></div>
-    <div class="note">
-      <h3>From the commissioner</h3>
-      <p id="hNote"></p>
+    <div class="hero-duo">
+      <div class="note">
+        <h3>From the commissioner</h3>
+        <p id="hNote"></p>
+      </div>
+      <div class="player">
+        <h3>La Playlist</h3>
+        <div id="plBox"></div>
+      </div>
     </div>
   </div>
 </header>
@@ -708,6 +821,26 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
       <p>Two conferences, two divisions each, drawn at random for year one.</p>
     </div>
     <div id="standingsBox"></div>
+  </div>
+</section>
+
+<section id="schedule">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>El Calendario</h2>
+      <p>Who plays who, and what's at stake beyond the points.</p>
+    </div>
+    <div id="scheduleBox"></div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Las Noticias</h2>
+      <p>Trades, waiver claims, and whatever else happens between Sundays.</p>
+    </div>
+    <div class="newsfeed" id="newsBox"></div>
   </div>
 </section>
 
@@ -728,7 +861,7 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
   <div class="wrap">
     <div class="sec-head">
       <h2>La Baraja</h2>
-      <p>Every manager gets a card. Tap one for the full sixteen-round draft and the verso they earned.</p>
+      <p>Every manager gets a card. Tap one for their full roster and the verso they earned.</p>
     </div>
     <div class="deck deal" id="deck"></div>
   </div>
@@ -741,16 +874,6 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
       <p>Year one. Nothing in here has an owner yet, which means all of it is up for grabs.</p>
     </div>
     <ul class="recbook" id="recBook"></ul>
-  </div>
-</section>
-
-<section id="playlist">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>La Playlist</h2>
-      <p>Rancho against Ciudad. Add your tracks and let the argument settle itself.</p>
-    </div>
-    <div class="plbox" id="plBox"></div>
   </div>
 </section>
 
@@ -781,11 +904,9 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
 (function(){
   "use strict";
   var L = LEAGUE;
-  var TODO = "NOMBRE";
   function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;")
     .replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
   function $(id){return document.getElementById(id);}
-  function named(m){return m.name && m.name !== TODO;}
 
   document.title = L.name;
   $("navBrand").textContent = L.name;
@@ -797,6 +918,24 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
   $("fLine").textContent    = "Inaugural season " + L.season + ". Commissioner's word is final.";
 
   var mgrs = L.managers || [];
+  var byTeam = {};
+  mgrs.forEach(function(m){ byTeam[m.team] = m; });
+
+  /* ---------- spotify ---------- */
+  var sp = (L.spotify||"").trim(), pid = "";
+  var spm = sp.match(/playlist[\/:]([A-Za-z0-9]+)/);
+  if (spm) pid = spm[1];
+  else if (/^[A-Za-z0-9]{15,}$/.test(sp)) pid = sp;
+  if (pid) {
+    $("plBox").innerHTML = '<iframe src="https://open.spotify.com/embed/playlist/' +
+      esc(pid) + '?utm_source=generator&amp;theme=0" width="100%" height="232" ' +
+      'frameborder="0" loading="lazy" title="League playlist" ' +
+      'allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+  } else {
+    $("plBox").innerHTML = '<div class="plempty">Make a public playlist in Spotify, open ' +
+      'the "..." menu, choose Share, then Copy link to playlist. Paste that link into the ' +
+      '<code>spotify:</code> line near the top of this file and the player shows up here.</div>';
+  }
 
   /* ---------- standings ---------- */
   function sortT(a,b){
@@ -818,7 +957,7 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
         '<th class="n">PF</th><th class="n">PA</th></tr></thead><tbody>';
       teams.forEach(function(m){
         sHtml += '<tr><td><span class="tm-name">' + esc(m.team) + '</span>' +
-          '<span class="mg-name">' + (named(m) ? esc(m.name) + " \u00b7 " : "") +
+          '<span class="mg-name">' + esc(m.name) + ' \u00b7 ' +
           esc(m.icon) + " " + esc(m.card) + '</span></td>' +
           '<td class="n">' + (m.w||0) + '</td><td class="n">' + (m.l||0) + '</td>' +
           '<td class="n">' + (m.pf||0) + '</td><td class="n">' + (m.pa||0) + '</td></tr>';
@@ -829,11 +968,47 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
   });
   $("standingsBox").innerHTML = sHtml;
 
-  /* ---------- round 1 board ---------- */
+  /* ---------- schedule ---------- */
+  function side(teamName, isHome){
+    var m = byTeam[teamName];
+    var ic = '<span class="ic">' + esc(m ? m.icon : "") + '</span>';
+    var tn = '<span class="tn">' + esc(teamName) +
+             '<span>' + esc(m ? m.name : "") + '</span></span>';
+    return '<div class="side' + (isHome ? " h" : "") + '">' +
+           (isHome ? tn + ic : ic + tn) + '</div>';
+  }
+  var schHtml = "";
+  (L.schedule||[]).forEach(function(w){
+    schHtml += '<div class="wk"><h3 class="wk-h">Week ' + esc(w.week) + '</h3><div class="games">';
+    (w.games||[]).forEach(function(g){
+      schHtml += '<div class="game"><div class="vs">' +
+        side(g.away,false) + '<div class="at">at</div>' + side(g.home,true) +
+        '</div><p class="ln">' + esc(g.line) + '</p></div>';
+    });
+    schHtml += '</div></div>';
+  });
+  $("scheduleBox").innerHTML = schHtml;
+
+  /* ---------- news ---------- */
+  var newsHtml = "";
+  (L.news||[]).forEach(function(n){
+    var li = (n.lines||[]).map(function(x){return '<li>' + esc(x) + '</li>';}).join("");
+    newsHtml += '<div class="nitem"><div class="nh">' +
+      '<span class="kind">' + esc(n.kind) + '</span>' +
+      '<span class="dt">' + esc(n.date) + '</span></div><div class="nb">' +
+      '<h4>' + esc(n.head) + '</h4>' +
+      (li ? '<ul>' + li + '</ul>' : "") +
+      (n.note ? '<p class="cm">' + esc(n.note) + '</p>' : "") +
+      '</div></div>';
+  });
+  $("newsBox").innerHTML = newsHtml;
+
+  /* ---------- draft board ---------- */
   var bySlot = mgrs.slice().sort(function(a,b){return (a.slot||0)-(b.slot||0);});
   var dHtml = "";
   bySlot.forEach(function(m){
-    var p1 = (m.roster||[])[0];
+    var p1 = null;
+    (m.roster||[]).forEach(function(p){ if (p.rd===1) p1 = p; });
     dHtml += '<div class="dpick"><span class="sl">' + esc(m.slot) + '</span>' +
       '<span class="dt">' + esc(m.team) + '<span class="dp">' +
       (p1 ? esc(p1.player) + " \u00b7 " + esc(p1.pos) : "") + '</span></span></div>';
@@ -855,8 +1030,7 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
       '<span class="conftag">' + esc(m.div) + '</span>' +
       '<span class="art">' + esc(m.icon||"") + '</span>' +
       '<span class="cardname">' + esc(m.card) + '</span>' +
-      '<span class="who"><span class="n' + (named(m) ? "" : " todo") + '">' +
-        (named(m) ? esc(m.name) : "nombre pendiente") + '</span>' +
+      '<span class="who"><span class="n">' + esc(m.name) + '</span>' +
       '<span class="t">' + esc(m.team) + '</span></span>' +
       '<span class="rec">' + (m.w||0) + "\u2013" + (m.l||0) +
         ((m.t) ? "\u2013"+m.t : "") + '</span></button>';
@@ -875,23 +1049,6 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
   });
   $("recBook").innerHTML = rHtml;
 
-  /* ---------- spotify ---------- */
-  var sp = (L.spotify||"").trim(), pid = "";
-  var mm = sp.match(/playlist[\/:]([A-Za-z0-9]+)/);
-  if (mm) pid = mm[1];
-  else if (/^[A-Za-z0-9]{15,}$/.test(sp)) pid = sp;
-  if (pid) {
-    $("plBox").innerHTML = '<iframe src="https://open.spotify.com/embed/playlist/' +
-      esc(pid) + '?utm_source=generator&amp;theme=0" width="100%" height="420" ' +
-      'frameborder="0" loading="lazy" title="League playlist" ' +
-      'allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
-  } else {
-    $("plBox").innerHTML = '<div class="plempty"><b>No playlist yet</b>' +
-      'Make a public playlist in Spotify, open the "..." menu, choose Share, then ' +
-      'Copy link to playlist. Paste that link into the <code>spotify:</code> line near ' +
-      'the top of this file and the player shows up right here.</div>';
-  }
-
   /* ---------- rules ---------- */
   var ruHtml = "";
   (L.rules||[]).forEach(function(r){
@@ -906,23 +1063,26 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
     var m = mgrs[i]; if (!m) return;
     lastFocus = document.activeElement;
     var ros = (m.roster||[]).map(function(p){
-      return '<tr><td class="rd">' + esc(p.rd) + '</td>' +
+      var acq = typeof p.rd === "string";
+      return '<tr><td class="rd' + (acq ? " acq" : "") + '">' + esc(p.rd) + '</td>' +
         '<td class="p">' + esc(p.pos) + '</td>' +
         '<td>' + esc(p.player) + '</td>' +
         '<td class="tt">' + esc(p.team) + '</td></tr>';
     }).join("");
+    var n = (m.roster||[]).length;
     sheet.innerHTML =
       '<button class="close" id="closeBtn" aria-label="Close">\u2715</button>' +
       '<div class="sheet-top"><div class="art">' + esc(m.icon||"") + '</div><div>' +
         '<p class="cardname">No. ' + esc(m.num) + ' \u2014 ' + esc(m.card) + '</p>' +
-        '<h3 id="sheetName"' + (named(m) ? "" : ' class="todo"') + '>' +
-          (named(m) ? esc(m.name) : "nombre pendiente") + '</h3>' +
+        '<h3 id="sheetName">' + esc(m.name) + '</h3>' +
         '<div class="t">' + esc(m.team) + ' \u00b7 ' + esc(m.conf) + " / " + esc(m.div) +
         ' \u00b7 pick ' + esc(m.slot) + '</div></div></div>' +
       '<div class="sheet-body">' +
         (m.verso ? '<p class="verso">' + esc(m.verso) + '</p>' : "") +
-        '<h4>Draft recap</h4><p>' + esc(m.bio) + '</p>' +
-        '<h4>The full sixteen</h4><table class="roster"><tbody>' + ros + '</tbody></table>' +
+        '<h4>Scouting report</h4><p>' + esc(m.bio) + '</p>' +
+        '<h4>Roster <em>' + n + ' players \u00b7 number is the round drafted, ' +
+          'TR traded for, WW off waivers</em></h4>' +
+        '<table class="roster"><tbody>' + ros + '</tbody></table>' +
       '</div>';
     overlay.classList.add("open");
     document.body.style.overflow = "hidden";
