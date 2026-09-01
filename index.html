@@ -48,7 +48,7 @@ const LEAGUE = {
      menu, then Share, then Copy link to playlist.
   ------------------------------------------------------------------------- */
 
-  spotify: "https://open.spotify.com/playlist/0iRkwlWIgpQ3ETDJDLXcuw?si=nfe0IGQER8CQoqpHhhU4zg",
+  spotify: "",
 
   /* --- CONFERENCES AND DIVISIONS ---------------------------------------- */
 
@@ -629,6 +629,66 @@ const LEAGUE = {
      Blank for year one. Fill in holder, value and year as they happen.
   ------------------------------------------------------------------------- */
 
+  /* --- AWARDS ------------------------------------------------------------
+
+     These show up next to the record book AND as small badges on each
+     manager's loteria card.
+
+       tier    "good" (green), "bad" (red), or "fun" (gold)
+       title   the award name
+       badge   the SHORT version printed on their card. Keep it to about
+               three words or it will crowd the card.
+       team    must match a team name exactly, or the badge won't attach
+       detail  the explanation
+       source  where it came from. Use "" for league observation.
+
+     Add or delete freely. Season awards can go here too as they happen.
+  ------------------------------------------------------------------------- */
+
+  awards: [
+    { tier:"good", title:"Best draft in the league", badge:"Best Draft",
+      team:"Sylvia's Team", source:"ESPN draft grades",
+      detail:"Graded out first overall. Ja'Marr Chase, Chase Brown and Trey McBride in the first three rounds, and she still had Garrett Wilson coming in the fourth." },
+    { tier:"good", title:"Best value at the turn", badge:"The Turn",
+      team:"Edwin's Annihilators", source:"",
+      detail:"Ashton Jeanty at 1.12 and James Cook at 2.01. Two picks, no wait, and the rest of the room watching it happen." },
+    { tier:"good", title:"Cleanest opening pair", badge:"Clean Open",
+      team:"Sundae Best", source:"",
+      detail:"Derrick Henry and Justin Jefferson back to back. No cuteness, no reaching, just the two best players available." },
+    { tier:"good", title:"Best board nobody saw coming", badge:"Sleeper Board",
+      team:"Hugh Jazz Mangoes", source:"",
+      detail:"Five straight rounds of hits: JSN, Achane, Nico Collins, Bucky Irving, Ladd McConkey. Named the team for a joke and drafted like a professional." },
+
+    { tier:"bad", title:"Weakest draft in the league", badge:"Weakest Draft",
+      team:"Go Birds", source:"ESPN draft grades",
+      detail:"Graded out last. A tight end at 1.11 is defensible. Everything after it is going to need a good explanation." },
+    { tier:"bad", title:"Two kickers, one kicker slot", badge:"2 Kickers",
+      team:"CTE SQUAD", source:"",
+      detail:"Jason Myers in the tenth and Matt Gay in the twelfth. One of them will never start a game." },
+    { tier:"bad", title:"Last manager to a quarterback", badge:"Last to a QB",
+      team:"ChristianDiscord no cu$$ing plz", source:"",
+      detail:"Waited until the eighth round for Baker Mayfield, the latest first quarterback in the liga, and then had to trade for Caleb Williams six days later." },
+
+    { tier:"fun", title:"Homer of the year", badge:"4 Bears",
+      team:"Windy City Winners", source:"",
+      detail:"Drafted Colston Loveland, Caleb Williams, Rome Odunze and Cairo Santos. Four Chicago Bears. Traded one away almost immediately, so the record stands at three." },
+    { tier:"fun", title:"Two thrones, one team", badge:"Two Thrones",
+      team:"Go Birds", source:"",
+      detail:"Lamar Jackson in the third and Patrick Mahomes in the eleventh. One of the best quarterbacks alive is going to ride the bench all season." },
+    { tier:"fun", title:"Tight end collector", badge:"3 Tight Ends",
+      team:"Serving Punt", source:"",
+      detail:"Sam LaPorta, Dalton Kincaid and Hunter Henry. Most tight ends in the liga, and only one slot to play them in." },
+    { tier:"fun", title:"Ground and pound", badge:"5 Backs",
+      team:"Esme's Excellent Team", source:"",
+      detail:"Jonathan Taylor, Omarion Hampton, Breece Hall, Chuba Hubbard and Alvin Kamara. A plan to run the ball until somebody stops her." },
+    { tier:"fun", title:"First overall, zero drama", badge:"The 1.01",
+      team:"Hup Hup Hike Armada", source:"",
+      detail:"Held the first pick, took Saquon Barkley, sat down. Nobody can criticize it and nobody can praise it either." },
+    { tier:"fun", title:"Fearless", badge:"QB in the 2nd",
+      team:"Ballin' Ass Ballers", source:"",
+      detail:"Took Josh Allen in the second round, the first quarterback off the board by a full two rounds. Either brilliant or expensive." }
+  ],
+
   records: [
     { label: "Most points, one week",   holder: "", value: "", year: "" },
     { label: "Fewest points, one week", holder: "", value: "", year: "" },
@@ -932,7 +992,42 @@ tbody tr:hover{background:rgba(224,26,118,.09)}
 .nolu{background:var(--papel-2); border:2px dashed var(--tinta-3);
   padding:18px 20px; font-size:.89rem; margin:0}
 
-.recbook{list-style:none; margin:0; padding:0; max-width:720px}
+.libro{display:grid; gap:38px; grid-template-columns:1fr 1.05fr; align-items:start}
+@media (max-width:900px){.libro{grid-template-columns:1fr}}
+.col-h{font-family:var(--display); color:var(--papel); font-size:1.15rem; margin:0 0 4px}
+.col-sub{margin:0 0 16px; font-size:.82rem; color:var(--papel-2); opacity:.7}
+
+.awgroup{margin-bottom:22px}
+.awgroup > h4{font-family:var(--display); font-size:.82rem; margin:0 0 10px;
+  display:flex; align-items:center; gap:10px; color:var(--jade)}
+.awgroup > h4::after{content:""; flex:1; height:2px; background:currentColor; opacity:.35}
+.awgroup.bad > h4{color:var(--rosa)}
+.awgroup.fun > h4{color:var(--oro)}
+.awlist{list-style:none; margin:0; padding:0}
+.awlist li{background:var(--papel); color:var(--tinta); border:3px solid var(--tinta-3);
+  border-left-width:8px; border-left-color:var(--jade);
+  padding:12px 15px; margin-bottom:9px}
+.awgroup.bad .awlist li{border-left-color:var(--rosa)}
+.awgroup.fun .awlist li{border-left-color:var(--oro)}
+.awlist .at{font-family:var(--display); font-size:.9rem; color:var(--sangre);
+  display:block; margin-bottom:2px}
+.awlist .aw-who{font-weight:700; font-size:.86rem; overflow-wrap:anywhere}
+.awlist .aw-who .mg{font-weight:400; opacity:.6}
+.awlist .ad{margin:7px 0 0; font-size:.84rem}
+.awlist .src{display:inline-block; margin-top:7px; background:var(--tinta-3);
+  color:var(--oro); font-size:.65rem; font-weight:700; padding:2px 7px}
+
+.awlist.inmodal li{border-width:2px; border-left-width:6px;
+  border-left-color:var(--tinta-3); background:var(--papel-2)}
+
+.badges{display:flex; flex-wrap:wrap; gap:4px; justify-content:center;
+  padding:0 9px 11px}
+.badge{font-size:.6rem; font-weight:700; padding:2px 6px; line-height:1.35;
+  border:1.5px solid var(--tinta-3); color:var(--tinta-3); background:var(--jade)}
+.badge.bad{background:var(--rosa); color:#fff}
+.badge.fun{background:var(--oro)}
+
+.recbook{list-style:none; margin:0; padding:0}
 .recbook li{display:flex; justify-content:space-between; gap:14px; align-items:baseline;
   padding:14px 0; border-bottom:1px dashed rgba(247,234,208,.26)}
 .recbook li:last-child{border-bottom:none}
@@ -1048,9 +1143,20 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
   <div class="wrap">
     <div class="sec-head">
       <h2>El Libro</h2>
-      <p>Year one. Nothing in here has an owner yet, which means all of it is up for grabs.</p>
+      <p>The record book is empty until somebody earns it. The awards started the day the draft ended.</p>
     </div>
-    <ul class="recbook" id="recBook"></ul>
+    <div class="libro">
+      <div>
+        <h3 class="col-h">Record book</h3>
+        <p class="col-sub">Year one. Everything here is up for grabs.</p>
+        <ul class="recbook" id="recBook"></ul>
+      </div>
+      <div>
+        <h3 class="col-h">Awards</h3>
+        <p class="col-sub">These show up as badges on each manager's card.</p>
+        <div id="awardsBox"></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1103,6 +1209,25 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
   var sched = L.schedule || [];
   var byTeam = {};
   mgrs.forEach(function(m){ byTeam[m.team] = m; });
+
+  var awards = L.awards || [];
+  var badgeOf = {};
+  awards.forEach(function(a){
+    if (!badgeOf[a.team]) badgeOf[a.team] = [];
+    badgeOf[a.team].push({ badge: a.badge || a.title, tier: a.tier });
+  });
+  function badgeHtml(team, limit){
+    var bs = badgeOf[team] || [];
+    if (!bs.length) return "";
+    var use = (limit && bs.length > limit) ? bs.slice(0, limit) : bs;
+    var h = use.map(function(b){
+      return '<span class="badge ' + esc(b.tier) + '">' + esc(b.badge) + '</span>';
+    }).join("");
+    if (use.length < bs.length) {
+      h += '<span class="badge fun">+' + (bs.length - use.length) + '</span>';
+    }
+    return '<span class="badges">' + h + '</span>';
+  }
 
   /* ---------- roll up records and points from the schedule ---------- */
   function total(lu){
@@ -1289,11 +1414,37 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
       '<span class="cardname">' + esc(m.card) + '</span>' +
       '<span class="who"><span class="n">' + esc(m.name) + '</span>' +
       '<span class="t">' + esc(m.team) + '</span></span>' +
+      badgeHtml(m.team, 3) +
       '<span class="rec">' + (m.w||0) + "\u2013" + (m.l||0) +
         ((m.t) ? "\u2013"+m.t : "") + '</span></button>';
   });
   deck.innerHTML = html;
   setTimeout(function(){deck.classList.remove("deal");},1600);
+
+  /* ---------- awards ---------- */
+  var TIERS = [
+    { key:"good", label:"Positive" },
+    { key:"bad",  label:"Negative" },
+    { key:"fun",  label:"Neutral and funny" }
+  ];
+  var aHtml = "";
+  TIERS.forEach(function(t){
+    var list = awards.filter(function(a){ return a.tier === t.key; });
+    if (!list.length) return;
+    aHtml += '<div class="awgroup ' + esc(t.key) + '"><h4>' + esc(t.label) +
+      '</h4><ul class="awlist">';
+    list.forEach(function(a){
+      var m = byTeam[a.team];
+      aHtml += '<li><span class="at">' + esc(a.title) + '</span>' +
+        '<span class="aw-who">' + esc(m ? m.icon + " " : "") + esc(a.team) +
+        (m ? ' <span class="mg">\u00b7 ' + esc(m.name) + '</span>' : "") + '</span>' +
+        (a.detail ? '<p class="ad">' + esc(a.detail) + '</p>' : "") +
+        (a.source ? '<span class="src">' + esc(a.source) + '</span>' : "") +
+        '</li>';
+    });
+    aHtml += '</ul></div>';
+  });
+  $("awardsBox").innerHTML = aHtml;
 
   /* ---------- records ---------- */
   var rHtml = "";
@@ -1330,6 +1481,17 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
     if (lastFocus) lastFocus.focus();
   }
 
+  function awardsFor(team){
+    var list = awards.filter(function(a){ return a.team === team; });
+    if (!list.length) return "";
+    var rows = list.map(function(a){
+      return '<li><span class="at">' + esc(a.title) + '</span>' +
+        (a.detail ? '<p class="ad">' + esc(a.detail) + '</p>' : "") +
+        (a.source ? '<span class="src">' + esc(a.source) + '</span>' : "") + '</li>';
+    }).join("");
+    return '<h4>Awards</h4><ul class="awlist inmodal">' + rows + '</ul>';
+  }
+
   function openManager(i){
     var m = mgrs[i]; if (!m) return;
     lastFocus = document.activeElement;
@@ -1352,6 +1514,7 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
       '<div class="sheet-body">' +
         (m.verso ? '<p class="verso">' + esc(m.verso) + '</p>' : "") +
         '<h4>Scouting report</h4><p>' + esc(m.bio) + '</p>' +
+        (awardsFor(m.team) || "") +
         '<h4>Roster <em>' + active + ' active \u00b7 number is the round drafted, ' +
           'TR traded for, WW off waivers</em></h4>' +
         '<table class="roster"><tbody>' + ros + '</tbody></table>' +
