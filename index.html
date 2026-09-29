@@ -39,9 +39,9 @@ const LEAGUE = {
   name:    "No Sabo Liga",
   tagline: "Rancho contra Ciudad. Doce equipos. Un solo trofeo.",
   season:  2026,
-  week:    2,          /* the schedule opens on this week */
+  week:    4,          /* the schedule opens on this week */
 
-  note: "Four trades and about thirty roster moves in one week. Steven has traded with half the liga, Keegan has rebuilt his team from the studs, and Matt H. finally dropped one of his kickers. Week 2 lineups lock Sunday morning.",
+  note: "Three weeks down. Eleven trades made, nine of them by one guy. Steven and Chris are unbeaten, Keegan and Eric are still looking for a win, and Chris took one by two hundredths of a point. Week 4 lineups lock Sunday morning.",
 
   /* --- SPOTIFY PLAYLIST --------------------------------------------------
      Paste a PUBLIC playlist link between the quotes. In Spotify: the "..."
@@ -58,94 +58,78 @@ const LEAGUE = {
   ],
 
   /* --- LEAGUE NEWS -------------------------------------------------------
-     Newest first. Add a block whenever something happens.
+     Newest first. "wk" groups the item under a week tab. Use wk:0 for
+     anything from before the season started.
   ------------------------------------------------------------------------- */
 
   news: [
-    {
-      date: "Fri Sep 18", kind: "Waivers",
-      head: "Keegan rebuilds Windy City from the studs",
-      lines: [
-        "Out: Daniel Jones, Ka\u0027imi Fairbairn, Brenton Strange, Jayden Reed, Rashid Shaheed, Lions D/ST",
-        "In: Carson Wentz, C.J. Stroud, Evan McPherson, Michael Mayer, Rashod Bateman, Buccaneers D/ST"
-      ],
-      note: "Six players out and six in across three days after an 0-1 start. He is also starting Carson Wentz over Justin Herbert, which is a decision a man makes on purpose."
-    },
-    {
-      date: "Thu Sep 17", kind: "Trade",
-      head: "Steven and Tiffany swap three",
-      lines: [
-        "Sundae Best sends George Pickens",
-        "ChristianDiscord sends Jaylen Waddle and TreVeyon Henderson"
-      ],
-      note: "Steven\u0027s third trade in three days, and the third different manager he has done business with. Tiffany turned one receiver into two starters."
-    },
-    {
-      date: "Tue Sep 15", kind: "Trade",
-      head: "Steven flips LaPorta and Olave within three hours",
-      lines: [
-        "12:14pm \u2014 Kaleigh sends Chris Olave and Sam LaPorta for CeeDee Lamb, Baker Mayfield and Eddy Pineiro",
-        "3:08pm \u2014 Steven sends those same two to Eric for Brock Bowers"
-      ],
-      note: "Acquired a tight end and a receiver from Serving Punt at lunch and had turned them into Brock Bowers by mid-afternoon. Nobody is sure yet who won this and that is usually a sign."
-    },
-    {
-      date: "Wed Sep 16", kind: "News",
-      head: "The two-kicker era ends",
-      lines: [ "CTE SQUAD drops Matt Gay, keeps Jason Myers" ],
-      note: "Eighteen days after drafting two kickers on purpose, Matt H. quietly corrected it and said nothing. The liga noticed anyway."
-    },
-    {
-      date: "Week 1", kind: "Recap",
-      head: "Steven drops 164.36, the trade pays off immediately",
-      lines: [
-        "ChristianDiscord 164.36, Go Birds 84.56",
-        "Caleb Williams: 37.26 in his first game for his new team",
-        "Highest score and biggest margin of the week"
-      ],
-      note: "Six days after Keegan traded him away, Caleb Williams put up the best quarterback line in the liga. Keegan lost his own game 132.2 to 99.26 the same afternoon."
-    },
-    {
-      date: "Week 1", kind: "Recap",
-      head: "Sylvia beats the best roster in the league by 3.96",
-      lines: [
-        "Sylvia's Team 137.0, Hugh Jazz Mangoes 133.04",
-        "Christian Watson, a tenth-round pick, led all scorers for Sylvia with 32.7"
-      ],
-      note: "Matt B. got exactly what he drafted for out of JSN, Nico Collins and Bucky Irving. It was not enough. Closest game of the week."
-    },
-    {
-      date: "Mon Aug 31", kind: "Trade",
-      head: "Windy City and ChristianDiscord swap five",
-      lines: [
-        "Windy City sends Caleb Williams and Mark Andrews",
-        "ChristianDiscord sends DJ Moore, Aaron Jones Sr. and Brenton Strange",
-        "Windy City drops Tyjae Spears to waivers"
-      ],
-      note: "Keegan drafted Caleb Williams in the fourth as part of a four-Bear haul and shipped him out six days later. Steven now has three quarterbacks. They play each other in Week 2."
-    },
-    {
-      date: "Mon Aug 31", kind: "Waivers",
-      head: "First waiver run of the year",
-      lines: [
-        "Serving Punt adds Keaton Mitchell, drops Ray Davis",
-        "Sylvia's Team adds Jalen Nailor",
-        "ChristianDiscord adds MarShawn Lloyd, drops Mike Washington Jr."
-      ],
-      note: "All three claims landed at 12:04 in the morning, which tells you something about this league."
-    },
-    {
-      date: "Sun Aug 30", kind: "News",
-      head: "Josh Jacobs suspended",
-      lines: [ "Sylvia's Team moves Josh Jacobs to injured reserve" ],
-      note: "Fifth-round running back gone before a snap. Tyler Allgeier gets the start instead."
-    },
-    {
-      date: "Sat Aug 29", kind: "Draft",
-      head: "Draft completed",
-      lines: [ "Sixteen rounds, one hundred ninety-two picks, zero autodrafts" ],
-      note: "League rules updated the same day. Full board is in the draft section."
-    }
+    { wk:3, date:"Week 3", kind:"Recap",
+      head:"Chris beats Sylvia by 0.02",
+      lines:[ "Ballin' Ass Ballers 124.36, Bench Don't Kill My Vibe 124.34" ],
+      note:"Two one-hundredths of a point between two unbeaten teams. Chris stays perfect. Sylvia takes her first loss in the worst way this game allows." },
+    { wk:3, date:"Week 3", kind:"Recap",
+      head:"Matt H. drops 153.48 and finally wins one",
+      lines:[ "CTE SQUAD 153.48, Sundae Best 99.3", "Jahmyr Gibbs 41.4, Brock Purdy 31.28" ],
+      note:"Highest score of the week from a team that had scored 108 and 115.88 in its two losses." },
+    { wk:3, date:"Week 3", kind:"Recap",
+      head:"Keegan hits 0-3",
+      lines:[ "Weeks 2 and 3: 43.58 and 70.38", "213.22 points through three weeks" ],
+      note:"Eleventh place has 283.82. The 43.58 in Week 2 is the lowest score this league has recorded." },
+    { wk:3, date:"Sep 22-27", kind:"Trade",
+      head:"Steven trades with five different managers in six days",
+      lines:[ "Caleb Williams to Tiffany for Dak Prescott", "MarShawn Lloyd to Sylvia for Woody Marks",
+              "Blake Corum to Monica for DK Metcalf", "Travis Etienne Jr. to Eric for Jacory Croskey-Merritt",
+              "Woody Marks, DK Metcalf and Mark Andrews to Keegan for Justin Herbert and Aaron Jones Sr." ],
+      note:"Eleven trades have been made this season. Steven is in nine of them. Full list is on the trade wall." },
+    { wk:3, date:"Sep 20-28", kind:"News",
+      head:"Four teams change their names",
+      lines:[ "ChristianDiscord no cu$$ing plz becomes Kirk Kuzzo's O'Block Apartment",
+              "Windy City Winners becomes Bad News Bears!",
+              "Sylvia's Team becomes Bench Don't Kill My Vibe",
+              "Edwin's Annihilators becomes FantasyBalls2:SearchforPoints" ],
+      note:"Three of the four came in the week after a loss." },
+    { wk:3, date:"Sep 23", kind:"News",
+      head:"Trade vetoed",
+      lines:[ "Breece Hall to Kirk Kuzzo's O'Block Apartment for George Pickens, reversed by the commissioner" ],
+      note:"Accepted on Sep 22 and undone about six hours later." },
+
+    { wk:2, date:"Fri Sep 18", kind:"Waivers",
+      head:"Keegan rebuilds from the studs",
+      lines:[ "Out: Daniel Jones, Ka'imi Fairbairn, Brenton Strange, Jayden Reed, Rashid Shaheed, Lions D/ST",
+              "In: Carson Wentz, C.J. Stroud, Evan McPherson, Michael Mayer, Rashod Bateman, Buccaneers D/ST" ],
+      note:"Six out and six in across three days after an 0-1 start. Most of them were gone again within the week." },
+    { wk:2, date:"Tue Sep 15", kind:"Trade",
+      head:"Steven flips LaPorta and Olave within three hours",
+      lines:[ "12:14pm - Kaleigh sends Chris Olave and Sam LaPorta for CeeDee Lamb, Baker Mayfield and Eddy Pineiro",
+              "3:08pm - Steven sends those same two to Eric for Brock Bowers" ],
+      note:"Acquired a tight end and a receiver at lunch and had turned them into Brock Bowers by mid-afternoon." },
+    { wk:2, date:"Wed Sep 16", kind:"News",
+      head:"The two-kicker era ends",
+      lines:[ "CTE SQUAD drops Matt Gay, keeps Jason Myers" ],
+      note:"Eighteen days after drafting two kickers on purpose, Matt H. quietly corrected it and said nothing." },
+
+    { wk:1, date:"Week 1", kind:"Recap",
+      head:"Steven drops 164.36 and the trade pays off immediately",
+      lines:[ "ChristianDiscord 164.36, Go Birds 84.56", "Caleb Williams: 37.26 in his first game for his new team" ],
+      note:"Six days after Keegan traded him away, Caleb Williams put up the best quarterback line in the liga." },
+    { wk:1, date:"Week 1", kind:"Recap",
+      head:"Sylvia beats the best roster in the league by 3.96",
+      lines:[ "Sylvia's Team 137.0, Hugh Jazz Mangoes 133.04", "Christian Watson, a tenth-round pick, led all scorers with 32.7" ],
+      note:"Matt B. got exactly what he drafted for and it was not enough. Closest game of the week." },
+
+    { wk:0, date:"Mon Aug 31", kind:"Trade",
+      head:"The first trade of the season",
+      lines:[ "Windy City sends Caleb Williams and Mark Andrews",
+              "ChristianDiscord sends DJ Moore, Aaron Jones Sr. and Brenton Strange" ],
+      note:"Keegan drafted Caleb Williams in the fourth round as part of a four-Bear haul and shipped him out six days later." },
+    { wk:0, date:"Sun Aug 30", kind:"News",
+      head:"Josh Jacobs suspended",
+      lines:[ "Sylvia moves Josh Jacobs to injured reserve" ],
+      note:"Fifth-round running back gone before a snap. He is still on her IR." },
+    { wk:0, date:"Sat Aug 29", kind:"Draft",
+      head:"Draft completed",
+      lines:[ "Sixteen rounds, one hundred ninety-two picks, zero autodrafts" ],
+      note:"Full board is in the draft section." }
   ],
 
   /* --- SCHEDULE ----------------------------------------------------------
@@ -168,28 +152,28 @@ const LEAGUE = {
     {
       week: 1,
       games: [
-        { away:"Windy City Winners", home:"Sundae Best",
+        { away:"Bad News Bears!", home:"Sundae Best",
           awayScore:99.26, homeScore:132.2,
           awayTop:[ {player:"DJ Moore",pts:21.0}, {player:"Rhamondre Stevenson",pts:14.5}, {player:"Cam Skattebo",pts:14.1} ],
           homeTop:[ {player:"Derrick Henry",pts:35.3}, {player:"Justin Jefferson",pts:31.2}, {player:"Dallas Goedert",pts:23.7} ],
           line:"Keegan traded away a quarter of his Bears collection two days before kickoff. Tiffany has Derrick Henry and a clear conscience.",
           recap:"Henry and Jefferson went for 66.5 between them and that was the game. DJ Moore led Windy City with 21.0, which is a fine day for a man acquired three days earlier and not nearly enough." },
 
-        { away:"ChristianDiscord no cu$$ing plz", home:"Go Birds",
+        { away:"Kirk Kuzzo's O'Block Apartment", home:"Go Birds",
           awayScore:164.36, homeScore:84.56,
           awayTop:[ {player:"Caleb Williams",pts:37.26}, {player:"Kenneth Walker III",pts:34.1}, {player:"Amon-Ra St. Brown",pts:28.7} ],
           homeTop:[ {player:"Lamar Jackson",pts:24.96}, {player:"Kyren Williams",pts:15.5}, {player:"Emeka Egbuka",pts:11.3} ],
           line:"Eric has Lamar and Mahomes. Steven just traded for Caleb Williams. Five quarterbacks between them and two starting slots.",
           recap:"Highest score in the liga and the biggest margin, 79.8. Caleb Williams put up 37.26 in his first game for a team that acquired him six days earlier. Eric got 24.96 from Lamar and almost nothing else." },
 
-        { away:"Hugh Jazz Mangoes", home:"Sylvia's Team",
+        { away:"Hugh Jazz Mangoes", home:"Bench Don't Kill My Vibe",
           awayScore:133.04, homeScore:137.0,
           awayTop:[ {player:"Jaxon Smith-Njigba",pts:26.2}, {player:"Nico Collins",pts:21.2}, {player:"Bucky Irving",pts:20.3} ],
           homeTop:[ {player:"Christian Watson",pts:32.7}, {player:"Trevor Lawrence",pts:26.1}, {player:"Trey McBride",pts:24.5} ],
           line:"The best roster in the liga against a team that lost its fifth-round back to a suspension before Week 1. Sylvia is not making excuses.",
           recap:"Closest game of the week at 3.96. Sylvia won it with Christian Watson, a tenth-round pick, dropping 32.7. Matt B. got exactly what he drafted for from JSN, Collins and Irving and still lost." },
 
-        { away:"Edwin's Annihilators", home:"Hup Hup Hike Armada",
+        { away:"FantasyBalls2:SearchforPoints", home:"Hup Hup Hike Armada",
           awayScore:110.42, homeScore:86.56,
           awayTop:[ {player:"Ashton Jeanty",pts:32.7}, {player:"Jalen Hurts",pts:24.72}, {player:"Tyler Loop",pts:14.0} ],
           homeTop:[ {player:"Zay Flowers",pts:26.0}, {player:"Joe Burrow",pts:14.16}, {player:"Jeremiyah Love",pts:13.0} ],
@@ -214,23 +198,211 @@ const LEAGUE = {
     {
       week: 2,
       games: [
-        { away:"ChristianDiscord no cu$$ing plz", home:"Windy City Winners",
-          line:"Three days after the trade they play each other. Caleb Williams and Mark Andrews line up against DJ Moore, Aaron Jones and Brenton Strange. Somebody finds out early." },
+        { away:"Kirk Kuzzo's O'Block Apartment", home:"Bad News Bears!",
+          awayScore:129.52,
+          awayTop:[ {player:"Amon-Ra St. Brown",pts:35.2}, {player:"Kenneth Walker III",pts:23.8}, {player:"Chase McLaughlin",pts:16.0} ],
+          homeScore:43.58,
+          homeTop:[ {player:"Aaron Jones Sr.",pts:10.5}, {player:"Cam Skattebo",pts:9.5}, {player:"Justin Herbert",pts:7.88} ],
+          line:"Three days after the trade they play each other. Caleb Williams and Mark Andrews line up against DJ Moore, Aaron Jones and Brenton Strange. Somebody finds out early.",
+          recap:"43.58. The lowest score anyone has posted in this league and it is not close. Keegan renamed the team Bad News Bears the same morning." },
         { away:"Sundae Best", home:"Hugh Jazz Mangoes",
-          line:"Sunday best against a team named for a joke. Both of them drafted like they meant it." },
-        { away:"Go Birds", home:"Edwin's Annihilators",
-          line:"Eric has the Eagles defense and Jake Elliott. Edwin has Hurts and DeVonta. Philadelphia is playing itself." },
-        { away:"Sylvia's Team", home:"CTE SQUAD",
-          line:"The eighth-round kicker against the man who drafted two of them. Whatever happens here, the position gets settled." },
+          awayScore:116.76,
+          awayTop:[ {player:"Dak Prescott",pts:29.76}, {player:"Jaylen Waddle",pts:21.8}, {player:"Derrick Henry",pts:17.7} ],
+          homeScore:106.82,
+          homeTop:[ {player:"Jaxon Smith-Njigba",pts:42.5}, {player:"Bo Nix",pts:14.12}, {player:"Bucky Irving",pts:13.0} ],
+          line:"Sunday best against a team named for a joke. Both of them drafted like they meant it.",
+          recap:"Jaxon Smith-Njigba went for 42.5, the best single game in the liga so far, and Matt B. still lost by 9.94." },
+        { away:"Go Birds", home:"FantasyBalls2:SearchforPoints",
+          awayScore:102.0,
+          awayTop:[ {player:"Chris Olave",pts:22.6}, {player:"Sam LaPorta",pts:17.2}, {player:"Kyren Williams",pts:15.7} ],
+          homeScore:117.86,
+          homeTop:[ {player:"DeVonta Smith",pts:27.7}, {player:"James Cook III",pts:20.9}, {player:"Jalen Hurts",pts:16.16} ],
+          line:"Eric has the Eagles defense and Jake Elliott. Edwin has Hurts and DeVonta. Philadelphia is playing itself.",
+          recap:"Edwin moved to 2-0 behind DeVonta Smith and James Cook. Eric fell to 0-2 despite a fine day from Olave and LaPorta." },
+        { away:"Bench Don't Kill My Vibe", home:"CTE SQUAD",
+          awayScore:137.68,
+          awayTop:[ {player:"Ja'Marr Chase",pts:26.5}, {player:"Bryce Young",pts:24.08}, {player:"Trey McBride",pts:18.1} ],
+          homeScore:115.88,
+          homeTop:[ {player:"Brock Purdy",pts:28.48}, {player:"Jahmyr Gibbs",pts:23.3}, {player:"Tetairoa McMillan",pts:15.1} ],
+          line:"The eighth-round kicker against the man who drafted two of them. Whatever happens here, the position gets settled.",
+          recap:"Bryce Young put up 24.08 for Sylvia, which is a sentence nobody expected to write. CTE dropped to 0-2 with 115.88, a total that wins most weeks." },
         { away:"Hup Hup Hike Armada", home:"Esme's Excellent Team",
-          line:"Monica against five running backs. Somebody is going to run out of carries first." },
+          awayScore:64.18,
+          awayTop:[ {player:"Joe Burrow",pts:16.18}, {player:"Broncos D/ST",pts:9.0}, {player:"Jeremiyah Love",pts:7.5} ],
+          homeScore:91.92,
+          homeTop:[ {player:"Jonathan Taylor",pts:29.2}, {player:"Omarion Hampton",pts:17.5}, {player:"Breece Hall",pts:14.2} ],
+          line:"Monica against five running backs. Somebody is going to run out of carries first.",
+          recap:"Monica scored 64.18. Her defense outscored six of her starters." },
         { away:"Serving Punt", home:"Ballin' Ass Ballers",
-          line:"Kaleigh's bench is deeper than most people's starters. Chris has Josh Allen and a shrug." }
+          awayScore:121.04,
+          awayTop:[ {player:"CeeDee Lamb",pts:35.3}, {player:"Dalton Kincaid",pts:22.5}, {player:"Jayden Daniels",pts:14.74} ],
+          homeScore:151.12,
+          homeTop:[ {player:"Josh Allen",pts:40.82}, {player:"Davante Adams",pts:39.5}, {player:"Christian McCaffrey",pts:22.6} ],
+          line:"Kaleigh's bench is deeper than most people's starters. Chris has Josh Allen and a shrug.",
+          recap:"Josh Allen 40.82 and Davante Adams 39.5 in the same lineup. Chris put up 151.12 and moved to 2-0." }
       ]
       /* No lineups yet. When Week 2 rolls around, copy the whole
          "lineups: { ... }" block from Week 1, paste it after the games
          list above (add a comma after the "]" first), and update it. */
+    },
+    {
+      week: 3,
+      games: [
+        { away:"FantasyBalls2:SearchforPoints", home:"Kirk Kuzzo's O'Block Apartment",
+          awayScore:109.72, homeScore:130.44,
+          awayTop:[ {player:"James Cook III",pts:19.4}, {player:"Chuba Hubbard",pts:15.0}, {player:"Jalen Hurts",pts:12.62} ],
+          homeTop:[ {player:"Brock Bowers",pts:27.6}, {player:"Kenneth Walker III",pts:21.3}, {player:"Dak Prescott",pts:18.94} ],
+          line:"First place against a team that had not lost either. Somebody's unbeaten run ends here.",
+          recap:"Steven moved to 3-0 and handed Edwin his first loss. Brock Bowers, acquired in the September flurry, led all scorers with 27.6." },
+
+        { away:"Bad News Bears!", home:"Hugh Jazz Mangoes",
+          awayScore:70.38, homeScore:114.7,
+          awayTop:[ {player:"Cam Skattebo",pts:13.0}, {player:"DJ Moore",pts:12.7}, {player:"DK Metcalf",pts:12.1} ],
+          homeTop:[ {player:"Jaxon Smith-Njigba",pts:35.36}, {player:"Bo Nix",pts:24.14}, {player:"Harold Fannin Jr.",pts:24.1} ],
+          line:"Two winless teams. One of them has to stop being winless.",
+          recap:"Matt B. got his first win. Keegan fell to 0-3 with his second-worst week of the year, and nobody on his roster cleared 13 points." },
+
+        { away:"CTE SQUAD", home:"Sundae Best",
+          awayScore:153.48, homeScore:99.3,
+          awayTop:[ {player:"Jahmyr Gibbs",pts:41.4}, {player:"Brock Purdy",pts:31.28}, {player:"Matthew Golden",pts:21.0} ],
+          homeTop:[ {player:"Tyler Shough",pts:23.8}, {player:"Derrick Henry",pts:21.9}, {player:"Parker Washington",pts:13.0} ],
+          line:"CTE has scored enough to win most weeks and is still looking for its first one.",
+          recap:"153.48, the highest score of the week, and Matt H. finally has a win. Jahmyr Gibbs went for 41.4. Tiffany's first loss." },
+
+        { away:"Esme's Excellent Team", home:"Go Birds",
+          awayScore:110.26, homeScore:102.24,
+          awayTop:[ {player:"George Kittle",pts:26.2}, {player:"Luther Burden III",pts:19.8}, {player:"Jared Goff",pts:19.36} ],
+          homeTop:[ {player:"Kyren Williams",pts:21.8}, {player:"Lamar Jackson",pts:20.44}, {player:"Chris Olave",pts:19.7} ],
+          line:"Eric is still looking for his first win and Esme is the one standing in front of it.",
+          recap:"Eric dropped to 0-3. He has now lost by 79.8, 15.86 and 8.02, which is at least trending in the right direction." },
+
+        { away:"Ballin' Ass Ballers", home:"Bench Don't Kill My Vibe",
+          awayScore:124.36, homeScore:124.34,
+          awayTop:[ {player:"Christian McCaffrey",pts:21.6}, {player:"Davante Adams",pts:20.7}, {player:"Josh Allen",pts:17.46} ],
+          homeTop:[ {player:"Garrett Wilson",pts:26.7}, {player:"Ja'Marr Chase",pts:24.8}, {player:"Christian Watson",pts:22.6} ],
+          line:"Two unbeaten teams, both scoring in the 120s every week. This one is going to be tight.",
+          recap:"124.36 to 124.34. Two one-hundredths of a point. Chris stays perfect, Sylvia takes the cruelest loss in the short history of this league." },
+
+        { away:"Serving Punt", home:"Hup Hup Hike Armada",
+          awayScore:131.74, homeScore:133.08,
+          awayTop:[ {player:"Bijan Robinson",pts:35.3}, {player:"Geno Smith",pts:26.04}, {player:"CeeDee Lamb",pts:20.2} ],
+          homeTop:[ {player:"Joe Burrow",pts:22.58}, {player:"Jeremiyah Love",pts:21.9}, {player:"Spencer Shrader",pts:17.0} ],
+          line:"Monica has not won yet. Kaleigh has the deeper roster. These things have a way of not mattering.",
+          recap:"Monica's first win, by 1.34, in her highest-scoring week of the year. Spencer Shrader, picked up off free agency two days earlier, kicked 17.0." }
+      ]
+    },
+    {
+      week: 4,
+      games: [
+        { away:"FantasyBalls2:SearchforPoints", home:"Bad News Bears!",
+          line:"Edwin is 2-1 and Keegan has not won yet. Keegan has also not scored 100 since Week 1." },
+        { away:"Hugh Jazz Mangoes", home:"CTE SQUAD",
+          line:"Both teams are 1-2 and both have scored more than their record suggests. Somebody gets to feel normal again." },
+        { away:"Kirk Kuzzo's O'Block Apartment", home:"Esme's Excellent Team",
+          line:"The only unbeaten left with a clean margin against the one team that has never traded with him." },
+        { away:"Sundae Best", home:"Ballin' Ass Ballers",
+          line:"Chris is 3-0 by a combined 57.78 points. Tiffany is the kind of team that closes gaps like that." },
+        { away:"Go Birds", home:"Serving Punt",
+          line:"Eric is 0-3 and Kaleigh is 1-2 with the third-most points in the liga. One of these records is lying." },
+        { away:"Bench Don't Kill My Vibe", home:"Hup Hup Hike Armada",
+          line:"Sylvia lost by 0.02 last week. Monica won by 1.34. Neither of them wants another one of those." }
+      ]
     }
+  ],
+
+
+  /* --- ON THE BLOCK ------------------------------------------------------
+     Players managers have flagged "likely to trade" on ESPN. This is the
+     first tab on El Muro, so keep it current: when somebody gets traded or
+     dropped, take their line out.
+
+     The site works out on its own whether each one is a starter or a bench
+     piece, so you only need the name.
+  ------------------------------------------------------------------------- */
+
+  block: [
+    { team:"Kirk Kuzzo's O'Block Apartment", date:"Sep 28", players:[
+        "George Pickens","Aaron Jones Sr.","Isaiah Likely","Panthers D/ST",
+        "Justin Herbert","Rome Odunze","Jacory Croskey-Merritt",
+        "Adonai Mitchell","Dontayvion Wicks" ] },
+
+    { team:"Sundae Best", date:"Sep 20-27", players:[
+        "Jaylen Waddle","Quinshon Judkins","TreVeyon Henderson","Darren Waller" ] },
+
+    { team:"Bad News Bears!", date:"Sep 27", players:[
+        "Rashod Bateman","Trey Smack" ] },
+
+    { team:"Go Birds", date:"Sep 23", players:[ "Patrick Mahomes" ] },
+
+    { team:"Serving Punt", date:"Sep 20", players:[ "Hunter Henry" ] }
+  ],
+
+  /* --- COMPLETED TRADES --------------------------------------------------
+     Newest first. "a" and "b" are the two teams; "aGets" and "bGets" are
+     what each one received. "wk" sorts it under a week tab on El Muro.
+     Set vetoed:true for a reversed trade.
+  ------------------------------------------------------------------------- */
+
+  trades: [
+    { date:"Sep 27", wk:3,
+      a:"Esme's Excellent Team",           aGets:["Xavier Worthy","Tee Higgins"],
+      b:"FantasyBalls2:SearchforPoints",   bGets:["Chuba Hubbard"],
+      note:"Hubbard went straight into Edwin's flex and scored 15.0 that week. Worthy and Higgins are both still on Esme's bench." },
+
+    { date:"Sep 25", wk:3,
+      a:"Kirk Kuzzo's O'Block Apartment",  aGets:["Justin Herbert","Aaron Jones Sr."],
+      b:"Bad News Bears!",                 bGets:["Woody Marks","DK Metcalf","Mark Andrews"],
+      note:"Keegan's second rebuild of the month. Andrews and Metcalf both walked into his starting lineup, Herbert went straight to Steven's bench." },
+
+    { date:"Sep 24", wk:3,
+      a:"Kirk Kuzzo's O'Block Apartment",  aGets:["Jacory Croskey-Merritt"],
+      b:"Go Birds",                        bGets:["Travis Etienne Jr."],
+      note:"Etienne starts at running back for Eric. Croskey-Merritt sits on Steven's bench." },
+
+    { date:"Sep 24", wk:3,
+      a:"Go Birds",                        aGets:["Jordan Addison"],
+      b:"Serving Punt",                    bGets:["Rashid Shaheed"],
+      note:"The only trade all season that did not involve Steven." },
+
+    { date:"Sep 24", wk:3,
+      a:"Kirk Kuzzo's O'Block Apartment",  aGets:["DK Metcalf"],
+      b:"Hup Hup Hike Armada",             bGets:["Blake Corum"],
+      note:"Steven held Metcalf for one day and sent him to Keegan in the Herbert deal." },
+
+    { date:"Sep 23", wk:3,
+      a:"Kirk Kuzzo's O'Block Apartment",  aGets:["Woody Marks"],
+      b:"Bench Don't Kill My Vibe",        bGets:["MarShawn Lloyd"],
+      note:"Marks lasted two days before being packaged to Keegan." },
+
+    { date:"Sep 22", wk:3, vetoed:true,
+      a:"Kirk Kuzzo's O'Block Apartment",  aGets:["Breece Hall"],
+      b:"Esme's Excellent Team",           bGets:["George Pickens"],
+      note:"Accepted and then reversed by the commissioner about six hours later." },
+
+    { date:"Sep 22", wk:3,
+      a:"Kirk Kuzzo's O'Block Apartment",  aGets:["Dak Prescott"],
+      b:"Sundae Best",                     bGets:["Caleb Williams"],
+      note:"Steven traded away the quarterback he had traded for three weeks earlier. Williams is now on Tiffany's injured reserve." },
+
+    { date:"Sep 17", wk:2,
+      a:"Kirk Kuzzo's O'Block Apartment",  aGets:["George Pickens"],
+      b:"Sundae Best",                     bGets:["Jaylen Waddle","TreVeyon Henderson"],
+      note:"Tiffany turned one receiver into two, and Waddle has started every week since." },
+
+    { date:"Sep 15", wk:2,
+      a:"Kirk Kuzzo's O'Block Apartment",  aGets:["Brock Bowers"],
+      b:"Go Birds",                        bGets:["Sam LaPorta","Chris Olave"],
+      note:"Three hours after acquiring LaPorta and Olave from Kaleigh, Steven flipped them both to Eric for Bowers." },
+
+    { date:"Sep 15", wk:2,
+      a:"Kirk Kuzzo's O'Block Apartment",  aGets:["Chris Olave","Sam LaPorta"],
+      b:"Serving Punt",                    bGets:["CeeDee Lamb","Baker Mayfield","Eddy Pineiro"],
+      note:"Lamb has been Kaleigh's best receiver since. Pineiro is still her kicker." },
+
+    { date:"Aug 31", wk:0,
+      a:"Kirk Kuzzo's O'Block Apartment",  aGets:["Caleb Williams","Mark Andrews"],
+      b:"Bad News Bears!",                 bGets:["DJ Moore","Brenton Strange","Aaron Jones Sr."],
+      note:"The first trade of the season. Caleb Williams scored 37.26 the following week for his new team." }
   ],
 
   /* --- THE MANAGERS ------------------------------------------------------
@@ -255,22 +427,22 @@ const LEAGUE = {
       bio: "Had the 1.01 and did the obvious thing with it. Then stacked two tight ends and two quarterbacks like the armada needed backups for the backups.",
       w: 0, l: 0, t: 0, pf: 0, pa: 0,
       roster: [
-        { src:3,     pos:"QB", player:"Joe Burrow", team:"CIN" },
-        { src:1,     pos:"RB", player:"Saquon Barkley", team:"PHI" },
-        { src:2,     pos:"RB", player:"Jeremiyah Love", team:"ARI" },
-        { src:5,     pos:"WR", player:"Zay Flowers", team:"BAL" },
-        { src:6,     pos:"WR", player:"Courtland Sutton", team:"DEN" },
-        { src:4,     pos:"TE", player:"Tyler Warren", team:"IND" },
-        { src:8,     pos:"FLX", player:"DK Metcalf", team:"PIT" },
+        { src:3,     pos:"QB",  player:"Joe Burrow", team:"CIN" },
+        { src:1,     pos:"RB",  player:"Saquon Barkley", team:"PHI" },
+        { src:2,     pos:"RB",  player:"Jeremiyah Love", team:"ARI" },
+        { src:14,    pos:"WR",  player:"Denzel Boston", team:"CLE" },
+        { src:"WW",  pos:"WR",  player:"Deebo Samuel Sr.", team:"SF" },
+        { src:4,     pos:"TE",  player:"Tyler Warren", team:"IND" },
+        { src:5,     pos:"FLX", player:"Zay Flowers", team:"BAL" },
         { src:7,     pos:"DEF", player:"Broncos D/ST", team:"DEN" },
-        { src:"FA",  pos:"K", player:"Tyler Bass", team:"BUF" },
-        { src:9,     pos:"BN", player:"Sam Darnold", team:"SEA" },
-        { src:10,    pos:"BN", player:"Harrison Mevis", team:"LAR" },
-        { src:11,    pos:"BN", player:"Ollie Gordon II", team:"MIA" },
-        { src:12,    pos:"BN", player:"Khalil Shakir", team:"BUF" },
-        { src:13,    pos:"BN", player:"T.J. Hockenson", team:"MIN" },
-        { src:14,    pos:"BN", player:"Denzel Boston", team:"CLE" },
-        { src:15,    pos:"BN", player:"Jonah Coleman", team:"DEN" }
+        { src:"FA",  pos:"K",   player:"Spencer Shrader", team:"IND" },
+        { src:6,     pos:"BN",  player:"Courtland Sutton", team:"DEN" },
+        { src:9,     pos:"BN",  player:"Sam Darnold", team:"SEA" },
+        { src:12,    pos:"BN",  player:"Khalil Shakir", team:"BUF" },
+        { src:13,    pos:"BN",  player:"T.J. Hockenson", team:"MIN" },
+        { src:"FA",  pos:"BN",  player:"Tyler Bass", team:"BUF" },
+        { src:"FA",  pos:"BN",  player:"Emanuel Wilson", team:"SEA" },
+        { src:"TR",  pos:"BN",  player:"Blake Corum", team:"LAR" }
       ]
     },
     {
@@ -281,22 +453,22 @@ const LEAGUE = {
       bio: "Took Jason Myers in the tenth and then took Matt Gay in the twelfth. Two kickers, one kicker slot. Also grabbed Cooper Kupp in the fourteenth like it was 2021.",
       w: 0, l: 0, t: 0, pf: 0, pa: 0,
       roster: [
-        { src:7,     pos:"QB", player:"Brock Purdy", team:"SF" },
-        { src:1,     pos:"RB", player:"Jahmyr Gibbs", team:"DET" },
-        { src:3,     pos:"RB", player:"Javonte Williams", team:"DAL" },
-        { src:4,     pos:"WR", player:"Tetairoa McMillan", team:"CAR" },
-        { src:11,    pos:"WR", player:"Matthew Golden", team:"GB" },
-        { src:"FA",  pos:"TE", player:"Kyle Pitts Sr.", team:"ATL" },
-        { src:2,     pos:"FLX", player:"Drake London", team:"ATL" },
-        { src:9,     pos:"DEF", player:"Steelers D/ST", team:"PIT" },
-        { src:10,    pos:"K", player:"Jason Myers", team:"SEA" },
-        { src:5,     pos:"BN", player:"Matthew Stafford", team:"LAR" },
-        { src:8,     pos:"BN", player:"Rico Dowdle", team:"PIT" },
-        { src:13,    pos:"BN", player:"Jalen Coker", team:"CAR" },
-        { src:14,    pos:"BN", player:"Cooper Kupp", team:"SEA" },
-        { src:15,    pos:"BN", player:"Chris Rodriguez Jr.", team:"JAX" },
-        { src:16,    pos:"BN", player:"Tank Bigsby", team:"PHI" },
-        { src:"FA",  pos:"BN", player:"Dalton Schultz", team:"HOU" }
+        { src:7,     pos:"QB",  player:"Brock Purdy", team:"SF" },
+        { src:1,     pos:"RB",  player:"Jahmyr Gibbs", team:"DET" },
+        { src:3,     pos:"RB",  player:"Javonte Williams", team:"DAL" },
+        { src:4,     pos:"WR",  player:"Tetairoa McMillan", team:"CAR" },
+        { src:13,    pos:"WR",  player:"Jalen Coker", team:"CAR" },
+        { src:"FA",  pos:"TE",  player:"Dalton Schultz", team:"HOU" },
+        { src:11,    pos:"FLX", player:"Matthew Golden", team:"GB" },
+        { src:"FA",  pos:"DEF", player:"Vikings D/ST", team:"MIN" },
+        { src:10,    pos:"K",   player:"Jason Myers", team:"SEA" },
+        { src:2,     pos:"BN",  player:"Drake London", team:"ATL" },
+        { src:5,     pos:"BN",  player:"Matthew Stafford", team:"LAR" },
+        { src:14,    pos:"BN",  player:"Cooper Kupp", team:"SEA" },
+        { src:15,    pos:"BN",  player:"Chris Rodriguez Jr.", team:"JAX" },
+        { src:16,    pos:"BN",  player:"Tank Bigsby", team:"PHI" },
+        { src:"FA",  pos:"BN",  player:"Kyle Pitts Sr.", team:"ATL" },
+        { src:8,     pos:"IR",  player:"Rico Dowdle", team:"PIT", ir:true }
       ]
     },
     {
@@ -307,21 +479,23 @@ const LEAGUE = {
       bio: "Took Bijan at 1.03 and then built the deepest bench in the liga. Two quarterbacks, three tight ends, and a running back room nobody wants to face in November. Already worked the waiver wire before Week 1.",
       w: 0, l: 0, t: 0, pf: 0, pa: 0,
       roster: [
-        { src:4,     pos:"QB", player:"Jayden Daniels", team:"WSH" },
-        { src:1,     pos:"RB", player:"Bijan Robinson", team:"ATL" },
-        { src:5,     pos:"RB", player:"David Montgomery", team:"HOU" },
-        { src:2,     pos:"WR", player:"Rashee Rice", team:"KC" },
-        { src:"TR",  pos:"WR", player:"CeeDee Lamb", team:"DAL" },
-        { src:7,     pos:"TE", player:"Dalton Kincaid", team:"BUF" },
-        { src:11,    pos:"FLX", player:"Jordan Addison", team:"MIN" },
+        { src:"FA",  pos:"QB",  player:"Geno Smith", team:"NYJ" },
+        { src:1,     pos:"RB",  player:"Bijan Robinson", team:"ATL" },
+        { src:5,     pos:"RB",  player:"David Montgomery", team:"HOU" },
+        { src:2,     pos:"WR",  player:"Rashee Rice", team:"KC" },
+        { src:"TR",  pos:"WR",  player:"CeeDee Lamb", team:"DAL" },
+        { src:7,     pos:"TE",  player:"Dalton Kincaid", team:"BUF" },
+        { src:"FA",  pos:"FLX", player:"Carnell Tate", team:"TEN" },
         { src:9,     pos:"DEF", player:"Seahawks D/ST", team:"SEA" },
-        { src:"TR",  pos:"K", player:"Eddy Pineiro", team:"SF" },
-        { src:10,    pos:"BN", player:"RJ Harvey", team:"DEN" },
-        { src:12,    pos:"BN", player:"Hunter Henry", team:"NE" },
-        { src:13,    pos:"BN", player:"Jakobi Meyers", team:"JAX" },
-        { src:14,    pos:"BN", player:"Chris Boswell", team:"PIT" },
-        { src:"FA",  pos:"BN", player:"Keaton Mitchell", team:"LAC" },
-        { src:"TR",  pos:"BN", player:"Baker Mayfield", team:"TB" }
+        { src:"TR",  pos:"K",   player:"Eddy Pineiro", team:"SF" },
+        { src:10,    pos:"BN",  player:"RJ Harvey", team:"DEN" },
+        { src:12,    pos:"BN",  player:"Hunter Henry", team:"NE" },
+        { src:13,    pos:"BN",  player:"Jakobi Meyers", team:"JAX" },
+        { src:"TR",  pos:"BN",  player:"Baker Mayfield", team:"TB" },
+        { src:"FA",  pos:"BN",  player:"Terrance Ferguson", team:"LAR" },
+        { src:"FA",  pos:"BN",  player:"Jameis Winston", team:"NYG" },
+        { src:"TR",  pos:"BN",  player:"Rashid Shaheed", team:"SEA" },
+        { src:4,     pos:"IR",  player:"Jayden Daniels", team:"WSH", ir:true }
       ]
     },
     {
@@ -332,49 +506,49 @@ const LEAGUE = {
       bio: "Jonathan Taylor, Omarion Hampton, Breece Hall, Chuba Hubbard, Alvin Kamara. Five running backs and a plan to run the ball until somebody stops her.",
       w: 0, l: 0, t: 0, pf: 0, pa: 0,
       roster: [
-        { src:3,     pos:"QB", player:"Drake Maye", team:"NE" },
-        { src:1,     pos:"RB", player:"Jonathan Taylor", team:"IND" },
-        { src:2,     pos:"RB", player:"Omarion Hampton", team:"LAC" },
-        { src:5,     pos:"WR", player:"Malik Nabers", team:"NYG" },
-        { src:6,     pos:"WR", player:"Luther Burden III", team:"CHI" },
-        { src:13,    pos:"TE", player:"Kenyon Sadiq", team:"NYJ" },
+        { src:8,     pos:"QB",  player:"Jared Goff", team:"DET" },
+        { src:1,     pos:"RB",  player:"Jonathan Taylor", team:"IND" },
+        { src:2,     pos:"RB",  player:"Omarion Hampton", team:"LAC" },
+        { src:5,     pos:"WR",  player:"Malik Nabers", team:"NYG" },
+        { src:6,     pos:"WR",  player:"Luther Burden III", team:"CHI" },
+        { src:7,     pos:"TE",  player:"George Kittle", team:"SF" },
         { src:4,     pos:"FLX", player:"Breece Hall", team:"NYJ" },
         { src:9,     pos:"DEF", player:"Rams D/ST", team:"LAR" },
-        { src:10,    pos:"K", player:"Cameron Dicker", team:"LAC" },
-        { src:7,     pos:"BN", player:"George Kittle", team:"SF" },
-        { src:8,     pos:"BN", player:"Jared Goff", team:"DET" },
-        { src:11,    pos:"BN", player:"Chuba Hubbard", team:"CAR" },
-        { src:12,    pos:"BN", player:"Alec Pierce", team:"IND" },
-        { src:14,    pos:"BN", player:"De\u0027Zhaun Stribling", team:"SF" },
-        { src:15,    pos:"BN", player:"Romeo Doubs", team:"NE" },
-        { src:16,    pos:"BN", player:"Alvin Kamara", team:"NO" }
+        { src:10,    pos:"K",   player:"Cameron Dicker", team:"LAC" },
+        { src:3,     pos:"BN",  player:"Drake Maye", team:"NE" },
+        { src:12,    pos:"BN",  player:"Alec Pierce", team:"IND" },
+        { src:13,    pos:"BN",  player:"Kenyon Sadiq", team:"NYJ" },
+        { src:15,    pos:"BN",  player:"Romeo Doubs", team:"NE" },
+        { src:16,    pos:"BN",  player:"Alvin Kamara", team:"NO" },
+        { src:"TR",  pos:"BN",  player:"Xavier Worthy", team:"KC" },
+        { src:"TR",  pos:"BN",  player:"Tee Higgins", team:"CIN" },
+        { src:14,    pos:"IR",  player:"De'Zhaun Stribling", team:"SF", ir:true }
       ]
     },
     {
       num: 5, card: "La Campana", icon: "\uD83D\uDD14",
-      name: "Sylvia", team: "Sylvia's Team",
+      name: "Sylvia", team: "Bench Don't Kill My Vibe",
       conf: "Rancho", div: "Corridos", slot: 5,
       verso: "Tomo un pateador en la octava ronda y miro a todos a los ojos.",
       bio: "Ja'Marr Chase at 1.05, fine, normal. Then took Brandon Aubrey in the EIGHTH round, roughly four rounds before anyone else touched a kicker, and did not explain herself. Lost Josh Jacobs to a suspension before Week 1 and did not flinch at that either.",
       w: 0, l: 0, t: 0, pf: 0, pa: 0,
       roster: [
-        { src:7,     pos:"QB", player:"Trevor Lawrence", team:"JAX" },
-        { src:2,     pos:"RB", player:"Chase Brown", team:"CIN" },
-        { src:6,     pos:"RB", player:"Jadarian Price", team:"SEA" },
-        { src:1,     pos:"WR", player:"Ja\u0027Marr Chase", team:"CIN" },
-        { src:4,     pos:"WR", player:"Garrett Wilson", team:"NYJ" },
-        { src:3,     pos:"TE", player:"Trey McBride", team:"ARI" },
+        { src:14,    pos:"QB",  player:"Bryce Young", team:"CAR" },
+        { src:2,     pos:"RB",  player:"Chase Brown", team:"CIN" },
+        { src:6,     pos:"RB",  player:"Jadarian Price", team:"SEA" },
+        { src:1,     pos:"WR",  player:"Ja'Marr Chase", team:"CIN" },
+        { src:4,     pos:"WR",  player:"Garrett Wilson", team:"NYJ" },
+        { src:3,     pos:"TE",  player:"Trey McBride", team:"ARI" },
         { src:10,    pos:"FLX", player:"Christian Watson", team:"GB" },
-        { src:9,     pos:"DEF", player:"Ravens D/ST", team:"BAL" },
-        { src:8,     pos:"K", player:"Brandon Aubrey", team:"DAL" },
-        { src:11,    pos:"BN", player:"Stefon Diggs", team:"WSH" },
-        { src:12,    pos:"BN", player:"Woody Marks", team:"HOU" },
-        { src:13,    pos:"BN", player:"Tyler Allgeier", team:"ARI" },
-        { src:14,    pos:"BN", player:"Bryce Young", team:"CAR" },
-        { src:15,    pos:"BN", player:"Gunnar Helm", team:"TEN" },
-        { src:16,    pos:"BN", player:"Keenan Allen", team:"IND" },
-        { src:"FA",  pos:"BN", player:"Jalen Nailor", team:"LV" },
-        { src:5,     pos:"IR", player:"Josh Jacobs", team:"GB", ir:true }
+        { src:"WW",  pos:"DEF", player:"49ers D/ST", team:"SF" },
+        { src:8,     pos:"K",   player:"Brandon Aubrey", team:"DAL" },
+        { src:7,     pos:"BN",  player:"Trevor Lawrence", team:"JAX" },
+        { src:9,     pos:"BN",  player:"Ravens D/ST", team:"BAL" },
+        { src:11,    pos:"BN",  player:"Stefon Diggs", team:"WSH" },
+        { src:13,    pos:"BN",  player:"Tyler Allgeier", team:"ARI" },
+        { src:"FA",  pos:"BN",  player:"Jalen Nailor", team:"LV" },
+        { src:"TR",  pos:"BN",  player:"MarShawn Lloyd", team:"GB" },
+        { src:5,     pos:"IR",  player:"Josh Jacobs", team:"GB", ir:true }
       ]
     },
     {
@@ -385,48 +559,48 @@ const LEAGUE = {
       bio: "Named the team for a bit and then quietly drafted JSN, Achane, Nico Collins, Bucky Irving and Ladd McConkey in five straight rounds. The joke is on everyone else.",
       w: 0, l: 0, t: 0, pf: 0, pa: 0,
       roster: [
-        { src:7,     pos:"QB", player:"Bo Nix", team:"DEN" },
-        { src:2,     pos:"RB", player:"De\u0027Von Achane", team:"MIA" },
-        { src:4,     pos:"RB", player:"Bucky Irving", team:"TB" },
-        { src:1,     pos:"WR", player:"Jaxon Smith-Njigba", team:"SEA" },
-        { src:3,     pos:"WR", player:"Nico Collins", team:"HOU" },
-        { src:6,     pos:"TE", player:"Harold Fannin Jr.", team:"CLE" },
+        { src:7,     pos:"QB",  player:"Bo Nix", team:"DEN" },
+        { src:2,     pos:"RB",  player:"De'Von Achane", team:"MIA" },
+        { src:4,     pos:"RB",  player:"Bucky Irving", team:"TB" },
+        { src:1,     pos:"WR",  player:"Jaxon Smith-Njigba", team:"SEA" },
+        { src:3,     pos:"WR",  player:"Nico Collins", team:"HOU" },
+        { src:6,     pos:"TE",  player:"Harold Fannin Jr.", team:"CLE" },
         { src:5,     pos:"FLX", player:"Ladd McConkey", team:"LAC" },
         { src:10,    pos:"DEF", player:"Chiefs D/ST", team:"KC" },
-        { src:11,    pos:"K", player:"Cam Little", team:"JAX" },
-        { src:8,     pos:"BN", player:"Jake Ferguson", team:"DAL" },
-        { src:9,     pos:"BN", player:"Mike Evans", team:"SF" },
-        { src:12,    pos:"BN", player:"Rachaad White", team:"WSH" },
-        { src:13,    pos:"BN", player:"Brian Thomas Jr.", team:"JAX" },
-        { src:14,    pos:"BN", player:"Malik Willis", team:"MIA" },
-        { src:16,    pos:"BN", player:"Jalen McMillan", team:"TB" },
-        { src:15,    pos:"IR", player:"Zach Charbonnet", team:"SEA", ir:true }
+        { src:11,    pos:"K",   player:"Cam Little", team:"JAX" },
+        { src:8,     pos:"BN",  player:"Jake Ferguson", team:"DAL" },
+        { src:9,     pos:"BN",  player:"Mike Evans", team:"SF" },
+        { src:12,    pos:"BN",  player:"Rachaad White", team:"WSH" },
+        { src:13,    pos:"BN",  player:"Brian Thomas Jr.", team:"JAX" },
+        { src:14,    pos:"BN",  player:"Malik Willis", team:"MIA" },
+        { src:16,    pos:"BN",  player:"Jalen McMillan", team:"TB" },
+        { src:15,    pos:"IR",  player:"Zach Charbonnet", team:"SEA", ir:true }
       ]
     },
     {
       num: 7, card: "La Bandera", icon: "\uD83D\uDEA9",
-      name: "Keegan", team: "Windy City Winners",
+      name: "Keegan", team: "Bad News Bears!",
       conf: "Ciudad", div: "Gorras", slot: 7,
-      verso: "Cuatro Bears en el draft, tres despues del trade. La bandera se encogio.",
+      verso: "Se llamo Winners, perdio tres, y se cambio el nombre a Bad News Bears. Al menos es honesto.",
       bio: "Drafted four Chicago Bears with total conviction and then traded Caleb Williams away six days later. Came back with DJ Moore, Aaron Jones and Brenton Strange, and still has Loveland, Odunze and Santos. The homer instinct survived, barely.",
       w: 0, l: 0, t: 0, pf: 0, pa: 0,
       roster: [
-        { src:"FA",  pos:"QB", player:"Carson Wentz", team:"MIN" },
-        { src:7,     pos:"RB", player:"Rhamondre Stevenson", team:"NE" },
-        { src:"TR",  pos:"RB", player:"Aaron Jones Sr.", team:"MIN" },
-        { src:15,    pos:"WR", player:"Deebo Samuel Sr.", team:"SF" },
-        { src:"TR",  pos:"WR", player:"DJ Moore", team:"BUF" },
-        { src:2,     pos:"TE", player:"Colston Loveland", team:"CHI" },
-        { src:1,     pos:"FLX", player:"Puka Nacua", team:"LAR" },
-        { src:"FA",  pos:"DEF", player:"Buccaneers D/ST", team:"TB" },
-        { src:14,    pos:"K", player:"Cairo Santos", team:"CHI" },
-        { src:3,     pos:"BN", player:"Cam Skattebo", team:"NYG" },
-        { src:5,     pos:"BN", player:"Rome Odunze", team:"CHI" },
-        { src:6,     pos:"BN", player:"Justin Herbert", team:"LAC" },
-        { src:"FA",  pos:"BN", player:"C.J. Stroud", team:"HOU" },
-        { src:"FA",  pos:"BN", player:"Rashod Bateman", team:"BAL" },
-        { src:"FA",  pos:"BN", player:"Michael Mayer", team:"LV" },
-        { src:"FA",  pos:"BN", player:"Evan McPherson", team:"CIN" }
+        { src:"FA",  pos:"QB",  player:"C.J. Stroud", team:"HOU" },
+        { src:3,     pos:"RB",  player:"Cam Skattebo", team:"NYG" },
+        { src:7,     pos:"RB",  player:"Rhamondre Stevenson", team:"NE" },
+        { src:"TR",  pos:"WR",  player:"DJ Moore", team:"BUF" },
+        { src:"FA",  pos:"WR",  player:"Rashod Bateman", team:"BAL" },
+        { src:"TR",  pos:"TE",  player:"Mark Andrews", team:"BAL" },
+        { src:"TR",  pos:"FLX", player:"DK Metcalf", team:"PIT" },
+        { src:"FA",  pos:"DEF", player:"Saints D/ST", team:"NO" },
+        { src:"FA",  pos:"K",   player:"Trey Smack", team:"GB" },
+        { src:1,     pos:"BN",  player:"Puka Nacua", team:"LAR" },
+        { src:2,     pos:"BN",  player:"Colston Loveland", team:"CHI" },
+        { src:"FA",  pos:"BN",  player:"Evan McPherson", team:"CIN" },
+        { src:"WW",  pos:"BN",  player:"Kyler Murray", team:"MIN" },
+        { src:"FA",  pos:"BN",  player:"Brenton Strange", team:"JAX" },
+        { src:"FA",  pos:"BN",  player:"KC Concepcion", team:"CLE" },
+        { src:"TR",  pos:"BN",  player:"Woody Marks", team:"HOU" }
       ]
     },
     {
@@ -437,22 +611,22 @@ const LEAGUE = {
       bio: "Took Josh Allen in the second, earlier than anyone else touched a quarterback, then took Travis Kelce in the thirteenth on pure name recognition. Somewhere in the middle is a very good football team.",
       w: 0, l: 0, t: 0, pf: 0, pa: 0,
       roster: [
-        { src:2,     pos:"QB", player:"Josh Allen", team:"BUF" },
-        { src:1,     pos:"RB", player:"Christian McCaffrey", team:"SF" },
-        { src:4,     pos:"RB", player:"D\u0027Andre Swift", team:"CHI" },
-        { src:3,     pos:"WR", player:"Davante Adams", team:"LAR" },
-        { src:5,     pos:"WR", player:"Jameson Williams", team:"DET" },
-        { src:10,    pos:"TE", player:"Juwan Johnson", team:"NO" },
+        { src:2,     pos:"QB",  player:"Josh Allen", team:"BUF" },
+        { src:1,     pos:"RB",  player:"Christian McCaffrey", team:"SF" },
+        { src:4,     pos:"RB",  player:"D'Andre Swift", team:"CHI" },
+        { src:3,     pos:"WR",  player:"Davante Adams", team:"LAR" },
+        { src:"FA",  pos:"WR",  player:"Devaughn Vele", team:"NO" },
+        { src:13,    pos:"TE",  player:"Travis Kelce", team:"KC" },
         { src:6,     pos:"FLX", player:"Bhayshul Tuten", team:"JAX" },
         { src:"FA",  pos:"DEF", player:"Bengals D/ST", team:"CIN" },
-        { src:16,    pos:"K", player:"Will Reichard", team:"MIN" },
-        { src:7,     pos:"BN", player:"Kenny Gainwell", team:"TB" },
-        { src:8,     pos:"BN", player:"Michael Wilson", team:"ARI" },
-        { src:9,     pos:"BN", player:"Jaxson Dart", team:"NYG" },
-        { src:11,    pos:"BN", player:"Quentin Johnston", team:"LAC" },
-        { src:13,    pos:"BN", player:"Travis Kelce", team:"KC" },
-        { src:"FA",  pos:"BN", player:"Devaughn Vele", team:"NO" },
-        { src:14,    pos:"IR", player:"Jordan Mason", team:"MIN", ir:true }
+        { src:16,    pos:"K",   player:"Will Reichard", team:"MIN" },
+        { src:5,     pos:"BN",  player:"Jameson Williams", team:"DET" },
+        { src:7,     pos:"BN",  player:"Kenny Gainwell", team:"TB" },
+        { src:8,     pos:"BN",  player:"Michael Wilson", team:"ARI" },
+        { src:10,    pos:"BN",  player:"Juwan Johnson", team:"NO" },
+        { src:11,    pos:"BN",  player:"Quentin Johnston", team:"LAC" },
+        { src:"WW",  pos:"BN",  player:"Deshaun Watson", team:"CLE" },
+        { src:14,    pos:"IR",  player:"Jordan Mason", team:"MIN", ir:true }
       ]
     },
     {
@@ -463,48 +637,49 @@ const LEAGUE = {
       bio: "Derrick Henry and Justin Jefferson back to back is about as clean as a first two rounds gets. Waited until the fifteenth for a kicker, which is the correct number of rounds to wait.",
       w: 0, l: 0, t: 0, pf: 0, pa: 0,
       roster: [
-        { src:4,     pos:"QB", player:"Dak Prescott", team:"DAL" },
-        { src:1,     pos:"RB", player:"Derrick Henry", team:"BAL" },
-        { src:5,     pos:"RB", player:"Quinshon Judkins", team:"CLE" },
-        { src:2,     pos:"WR", player:"Justin Jefferson", team:"MIN" },
-        { src:9,     pos:"WR", player:"Parker Washington", team:"JAX" },
-        { src:6,     pos:"TE", player:"Dallas Goedert", team:"PHI" },
+        { src:13,    pos:"QB",  player:"Tyler Shough", team:"NO" },
+        { src:1,     pos:"RB",  player:"Derrick Henry", team:"BAL" },
+        { src:5,     pos:"RB",  player:"Quinshon Judkins", team:"CLE" },
+        { src:2,     pos:"WR",  player:"Justin Jefferson", team:"MIN" },
+        { src:9,     pos:"WR",  player:"Parker Washington", team:"JAX" },
+        { src:14,    pos:"TE",  player:"Pat Freiermuth", team:"PIT" },
         { src:"TR",  pos:"FLX", player:"Jaylen Waddle", team:"DEN" },
-        { src:"FA",  pos:"DEF", player:"Chargers D/ST", team:"LAC" },
-        { src:15,    pos:"K", player:"Jake Bates", team:"DET" },
-        { src:8,     pos:"BN", player:"Texans D/ST", team:"HOU" },
-        { src:10,    pos:"BN", player:"Jonathon Brooks", team:"CAR" },
-        { src:11,    pos:"BN", player:"Chris Godwin Jr.", team:"TB" },
-        { src:13,    pos:"BN", player:"Tyler Shough", team:"NO" },
-        { src:14,    pos:"BN", player:"Pat Freiermuth", team:"PIT" },
-        { src:"FA",  pos:"BN", player:"Kaelon Black", team:"SF" },
-        { src:"TR",  pos:"BN", player:"TreVeyon Henderson", team:"NE" }
+        { src:"FA",  pos:"DEF", player:"Giants D/ST", team:"NYG" },
+        { src:"FA",  pos:"K",   player:"Ka'imi Fairbairn", team:"HOU" },
+        { src:6,     pos:"BN",  player:"Dallas Goedert", team:"PHI" },
+        { src:11,    pos:"BN",  player:"Chris Godwin Jr.", team:"TB" },
+        { src:15,    pos:"BN",  player:"Jake Bates", team:"DET" },
+        { src:"TR",  pos:"BN",  player:"TreVeyon Henderson", team:"NE" },
+        { src:"WW",  pos:"BN",  player:"Darren Waller", team:"CAR" },
+        { src:"FA",  pos:"BN",  player:"Tyjae Spears", team:"TEN" },
+        { src:"TR",  pos:"IR",  player:"Caleb Williams", team:"CHI", ir:true }
       ]
     },
     {
       num: 10, card: "El Diablito", icon: "\uD83D\uDE08",
-      name: "Steven", team: "ChristianDiscord no cu$$ing plz",
+      name: "Steven", team: "Kirk Kuzzo's O'Block Apartment",
       conf: "Ciudad", div: "Gorras", slot: 10,
       verso: "No cussing in the chat. Las ofertas de trade son otra historia.",
       bio: "Amon-Ra and CeeDee in the first two rounds is a genuinely mean pair of receivers. Then made the first trade of the year, gave up three players for Caleb Williams and Mark Andrews, and now carries three quarterbacks and an open roster spot he is clearly saving for something.",
       w: 0, l: 0, t: 0, pf: 0, pa: 0,
       roster: [
-        { src:"TR",  pos:"QB", player:"Caleb Williams", team:"CHI" },
-        { src:3,     pos:"RB", player:"Kenneth Walker III", team:"KC" },
-        { src:4,     pos:"RB", player:"Travis Etienne Jr.", team:"NO" },
-        { src:1,     pos:"WR", player:"Amon-Ra St. Brown", team:"DET" },
-        { src:"TR",  pos:"WR", player:"George Pickens", team:"DAL" },
-        { src:10,    pos:"TE", player:"Isaiah Likely", team:"NYG" },
-        { src:"FA",  pos:"FLX", player:"Dontayvion Wicks", team:"PHI" },
-        { src:"FA",  pos:"DEF", player:"49ers D/ST", team:"SF" },
-        { src:"FA",  pos:"K", player:"Chase McLaughlin", team:"TB" },
-        { src:"FA",  pos:"BN", player:"MarShawn Lloyd", team:"GB" },
-        { src:"TR",  pos:"BN", player:"Mark Andrews", team:"BAL" },
-        { src:"TR",  pos:"BN", player:"Brock Bowers", team:"LV" },
-        { src:"FA",  pos:"BN", player:"Caleb Douglas", team:"MIA" },
-        { src:"FA",  pos:"BN", player:"Blake Corum", team:"LAR" },
-        { src:"FA",  pos:"BN", player:"Panthers D/ST", team:"CAR" },
-        { src:"FA",  pos:"BN", player:"Devin Singletary", team:"NYG" }
+        { src:"TR",  pos:"QB",  player:"Dak Prescott", team:"DAL" },
+        { src:3,     pos:"RB",  player:"Kenneth Walker III", team:"KC" },
+        { src:"TR",  pos:"RB",  player:"Aaron Jones Sr.", team:"MIN" },
+        { src:1,     pos:"WR",  player:"Amon-Ra St. Brown", team:"DET" },
+        { src:"TR",  pos:"WR",  player:"George Pickens", team:"DAL" },
+        { src:10,    pos:"TE",  player:"Isaiah Likely", team:"NYG" },
+        { src:"TR",  pos:"FLX", player:"Brock Bowers", team:"LV" },
+        { src:"FA",  pos:"DEF", player:"Panthers D/ST", team:"CAR" },
+        { src:"FA",  pos:"K",   player:"Chase McLaughlin", team:"TB" },
+        { src:"TR",  pos:"BN",  player:"Justin Herbert", team:"LAC" },
+        { src:"TR",  pos:"BN",  player:"Jacory Croskey-Merritt", team:"WSH" },
+        { src:"FA",  pos:"BN",  player:"Rome Odunze", team:"CHI" },
+        { src:"FA",  pos:"BN",  player:"Dontayvion Wicks", team:"PHI" },
+        { src:"FA",  pos:"BN",  player:"Adonai Mitchell", team:"NYJ" },
+        { src:"FA",  pos:"BN",  player:"Emmett Johnson", team:"KC" },
+        { src:"FA",  pos:"BN",  player:"Eli Heidenreich", team:"PIT" },
+        { src:"FA",  pos:"IR",  player:"Jonathon Brooks", team:"CAR", ir:true }
       ]
     },
     {
@@ -515,49 +690,49 @@ const LEAGUE = {
       bio: "Drafted Lamar Jackson in the third and then took Patrick Mahomes in the eleventh anyway. Also holds the Eagles defense, Jake Elliott and Makai Lemon, so the team name is not decorative.",
       w: 0, l: 0, t: 0, pf: 0, pa: 0,
       roster: [
-        { src:3,     pos:"QB", player:"Lamar Jackson", team:"BAL" },
-        { src:4,     pos:"RB", player:"Kyren Williams", team:"LAR" },
-        { src:12,    pos:"RB", player:"Jacory Croskey-Merritt", team:"WSH" },
-        { src:5,     pos:"WR", player:"Emeka Egbuka", team:"TB" },
-        { src:"TR",  pos:"WR", player:"Chris Olave", team:"NO" },
-        { src:"TR",  pos:"TE", player:"Sam LaPorta", team:"DET" },
-        { src:9,     pos:"FLX", player:"J.K. Dobbins", team:"DEN" },
+        { src:3,     pos:"QB",  player:"Lamar Jackson", team:"BAL" },
+        { src:4,     pos:"RB",  player:"Kyren Williams", team:"LAR" },
+        { src:"TR",  pos:"RB",  player:"Travis Etienne Jr.", team:"NO" },
+        { src:5,     pos:"WR",  player:"Emeka Egbuka", team:"TB" },
+        { src:"TR",  pos:"WR",  player:"Chris Olave", team:"NO" },
+        { src:"TR",  pos:"TE",  player:"Sam LaPorta", team:"DET" },
+        { src:14,    pos:"FLX", player:"Josh Downs", team:"IND" },
         { src:8,     pos:"DEF", player:"Eagles D/ST", team:"PHI" },
-        { src:16,    pos:"K", player:"Jake Elliott", team:"PHI" },
-        { src:2,     pos:"BN", player:"A.J. Brown", team:"NE" },
-        { src:7,     pos:"BN", player:"Marvin Harrison Jr.", team:"ARI" },
-        { src:10,    pos:"BN", player:"Makai Lemon", team:"PHI" },
-        { src:11,    pos:"BN", player:"Patrick Mahomes", team:"KC" },
-        { src:14,    pos:"BN", player:"Josh Downs", team:"IND" },
-        { src:"FA",  pos:"BN", player:"Demarcus Robinson", team:"SF" },
-        { src:"FA",  pos:"BN", player:"Chris Brooks", team:"GB" }
+        { src:16,    pos:"K",   player:"Jake Elliott", team:"PHI" },
+        { src:7,     pos:"BN",  player:"Marvin Harrison Jr.", team:"ARI" },
+        { src:9,     pos:"BN",  player:"J.K. Dobbins", team:"DEN" },
+        { src:11,    pos:"BN",  player:"Patrick Mahomes", team:"KC" },
+        { src:"WW",  pos:"BN",  player:"Tony Pollard", team:"TEN" },
+        { src:"FA",  pos:"BN",  player:"Zach Ertz", team:"PHI" },
+        { src:"TR",  pos:"BN",  player:"Jordan Addison", team:"MIN" },
+        { src:"FA",  pos:"BN",  player:"Michael Pittman Jr.", team:"PIT" },
+        { src:2,     pos:"IR",  player:"A.J. Brown", team:"NE", ir:true }
       ]
     },
     {
       num: 12, card: "La Muerte", icon: "\uD83D\uDC80",
-      name: "Edwin", team: "Edwin's Annihilators",
+      name: "Edwin", team: "FantasyBalls2:SearchforPoints",
       conf: "Rancho", div: "Tejanas", slot: 12,
       verso: "Pickeo doce y uno seguidos y salio con Jeanty y Cook. La vuelta mas cruel.",
       bio: "Sat at the turn with the 1.12 and the 2.01, took Ashton Jeanty and James Cook back to back, and left everyone else staring at the board. Then took Hurts, Higgins and McLaurin in three of the next four.",
       w: 0, l: 0, t: 0, pf: 0, pa: 0,
       roster: [
-        { src:4,     pos:"QB", player:"Jalen Hurts", team:"PHI" },
-        { src:1,     pos:"RB", player:"Ashton Jeanty", team:"LV" },
-        { src:2,     pos:"RB", player:"James Cook III", team:"BUF" },
-        { src:3,     pos:"WR", player:"DeVonta Smith", team:"PHI" },
-        { src:5,     pos:"WR", player:"Tee Higgins", team:"CIN" },
-        { src:10,    pos:"TE", player:"Tucker Kraft", team:"GB" },
-        { src:13,    pos:"FLX", player:"Kyle Monangai", team:"CHI" },
-        { src:11,    pos:"DEF", player:"Browns D/ST", team:"CLE" },
-        { src:12,    pos:"K", player:"Tyler Loop", team:"BAL" },
-        { src:6,     pos:"BN", player:"Terry McLaurin", team:"WSH" },
-        { src:7,     pos:"BN", player:"Jaylen Warren", team:"PIT" },
-        { src:8,     pos:"BN", player:"Michael Pittman Jr.", team:"PIT" },
-        { src:9,     pos:"BN", player:"Jordan Love", team:"GB" },
-        { src:14,    pos:"BN", player:"Xavier Worthy", team:"KC" },
-        { src:15,    pos:"BN", player:"KC Concepcion", team:"CLE" },
-        { src:"FA",  pos:"BN", player:"Patriots D/ST", team:"NE" },
-        { src:16,    pos:"IR", player:"Isiah Pacheco", team:"DET", ir:true }
+        { src:4,     pos:"QB",  player:"Jalen Hurts", team:"PHI" },
+        { src:1,     pos:"RB",  player:"Ashton Jeanty", team:"LV" },
+        { src:2,     pos:"RB",  player:"James Cook III", team:"BUF" },
+        { src:3,     pos:"WR",  player:"DeVonta Smith", team:"PHI" },
+        { src:"WW",  pos:"WR",  player:"Tre Tucker", team:"LV" },
+        { src:10,    pos:"TE",  player:"Tucker Kraft", team:"GB" },
+        { src:"TR",  pos:"FLX", player:"Chuba Hubbard", team:"CAR" },
+        { src:"FA",  pos:"DEF", player:"Raiders D/ST", team:"LV" },
+        { src:12,    pos:"K",   player:"Tyler Loop", team:"BAL" },
+        { src:6,     pos:"BN",  player:"Terry McLaurin", team:"WSH" },
+        { src:7,     pos:"BN",  player:"Jaylen Warren", team:"PIT" },
+        { src:9,     pos:"BN",  player:"Jordan Love", team:"GB" },
+        { src:13,    pos:"BN",  player:"Kyle Monangai", team:"CHI" },
+        { src:"FA",  pos:"BN",  player:"Patriots D/ST", team:"NE" },
+        { src:"WW",  pos:"BN",  player:"Michael Mayer", team:"LV" },
+        { src:16,    pos:"IR",  player:"Isiah Pacheco", team:"DET", ir:true }
       ]
     }
   ],
@@ -568,15 +743,15 @@ const LEAGUE = {
     { slot:1,  team:"Hup Hup Hike Armada",            player:"Saquon Barkley",     pos:"RB" },
     { slot:2,  team:"CTE SQUAD",                      player:"Jahmyr Gibbs",       pos:"RB" },
     { slot:3,  team:"Serving Punt",                   player:"Bijan Robinson",     pos:"RB" },
-    { slot:4,  team:"Esme\u0027s Excellent Team",       player:"Jonathan Taylor",    pos:"RB" },
-    { slot:5,  team:"Sylvia\u0027s Team",               player:"Ja\u0027Marr Chase",   pos:"WR" },
+    { slot:4,  team:"Esme's Excellent Team",           player:"Jonathan Taylor",    pos:"RB" },
+    { slot:5,  team:"Bench Don't Kill My Vibe",        player:"Ja'Marr Chase",     pos:"WR" },
     { slot:6,  team:"Hugh Jazz Mangoes",              player:"Jaxon Smith-Njigba", pos:"WR" },
-    { slot:7,  team:"Windy City Winners",             player:"Puka Nacua",         pos:"WR" },
-    { slot:8,  team:"Ballin\u0027 Ass Ballers",         player:"Christian McCaffrey", pos:"RB" },
+    { slot:7,  team:"Bad News Bears!",             player:"Puka Nacua",         pos:"WR" },
+    { slot:8,  team:"Ballin' Ass Ballers",             player:"Christian McCaffrey", pos:"RB" },
     { slot:9,  team:"Sundae Best",                    player:"Derrick Henry",      pos:"RB" },
-    { slot:10, team:"ChristianDiscord no cu$$ing plz", player:"Amon-Ra St. Brown", pos:"WR" },
+    { slot:10, team:"Kirk Kuzzo's O'Block Apartment", player:"Amon-Ra St. Brown", pos:"WR" },
     { slot:11, team:"Go Birds",                       player:"Brock Bowers",       pos:"TE" },
-    { slot:12, team:"Edwin\u0027s Annihilators",        player:"Ashton Jeanty",      pos:"RB" }
+    { slot:12, team:"FantasyBalls2:SearchforPoints",   player:"Ashton Jeanty",      pos:"RB" }
   ],
 
   draftNotes: [
@@ -610,10 +785,10 @@ const LEAGUE = {
 
   awards: [
     { tier:"good", title:"Best draft in the league", badge:"Best Draft",
-      team:"Sylvia's Team", source:"ESPN draft grades",
+      team:"Bench Don't Kill My Vibe", source:"ESPN draft grades",
       detail:"Graded out first overall. Ja'Marr Chase, Chase Brown and Trey McBride in the first three rounds, and she still had Garrett Wilson coming in the fourth." },
     { tier:"good", title:"Best value at the turn", badge:"The Turn",
-      team:"Edwin's Annihilators", source:"",
+      team:"FantasyBalls2:SearchforPoints", source:"",
       detail:"Ashton Jeanty at 1.12 and James Cook at 2.01. Two picks, no wait, and the rest of the room watching it happen." },
     { tier:"good", title:"Cleanest opening pair", badge:"Clean Open",
       team:"Sundae Best", source:"",
@@ -629,12 +804,12 @@ const LEAGUE = {
       team:"CTE SQUAD", source:"",
       detail:"Jason Myers in the tenth and Matt Gay in the twelfth. Held both for eighteen days and then quietly dropped Gay on Sep 16 without a word about it." },
     { tier:"bad", title:"Last manager to a quarterback", badge:"Last to a QB",
-      team:"ChristianDiscord no cu$$ing plz", source:"",
+      team:"Kirk Kuzzo's O'Block Apartment", source:"",
       detail:"Waited until the eighth round for Baker Mayfield, the latest first quarterback in the liga, and then had to trade for Caleb Williams six days later." },
 
     { tier:"fun", title:"Homer of the year", badge:"4 Bears",
-      team:"Windy City Winners", source:"",
-      detail:"Drafted Colston Loveland, Caleb Williams, Rome Odunze and Cairo Santos. Four Chicago Bears. Traded one away almost immediately, so the record stands at three." },
+      team:"Bad News Bears!", source:"",
+      detail:"Drafted four Chicago Bears in Loveland, Caleb Williams, Odunze and Santos. By the end of September all four were gone and the team was renamed Bad News Bears." },
     { tier:"fun", title:"Two thrones, one team", badge:"Two Thrones",
       team:"Go Birds", source:"",
       detail:"Lamar Jackson in the third and Patrick Mahomes in the eleventh. One of the best quarterbacks alive is going to ride the bench all season." },
@@ -648,27 +823,50 @@ const LEAGUE = {
       team:"Hup Hup Hike Armada", source:"",
       detail:"Held the first pick, took Saquon Barkley, sat down. Nobody can criticize it and nobody can praise it either." },
     { tier:"good", title:"Week 1 high score", badge:"164.36",
-      team:"ChristianDiscord no cu$$ing plz", source:"Week 1",
+      team:"Kirk Kuzzo's O'Block Apartment", source:"Week 1",
       detail:"Scored 164.36, thirty-one points clear of anyone else, in the same week the quarterback he traded for led the league at his position." },
     { tier:"bad", title:"Week 1 low score", badge:"Low Score",
       team:"Go Birds", source:"Week 1",
       detail:"84.56. Lamar Jackson went for 24.96 and the rest of the roster produced almost nothing. Mahomes watched from the bench." },
     { tier:"fun", title:"The one that got away", badge:"Traded Caleb",
-      team:"Windy City Winners", source:"Week 1",
+      team:"Bad News Bears!", source:"Week 1",
       detail:"Traded Caleb Williams on Aug 31. On Sept 7 Caleb Williams scored 37.26 for somebody else and Keegan lost by 32.94." },
     { tier:"fun", title:"Tenth-round hero", badge:"Watson 32.7",
-      team:"Sylvia\u0027s Team", source:"Week 1",
+      team:"Bench Don't Kill My Vibe", source:"Week 1",
       detail:"Christian Watson, taken in the tenth round, outscored every player on the best roster in the liga and won the closest game of the week." },
 
     { tier:"fun", title:"Trade machine", badge:"4 Trades",
-      team:"ChristianDiscord no cu$$ing plz", source:"Weeks 1-2",
+      team:"Kirk Kuzzo's O'Block Apartment", source:"Weeks 1-2",
       detail:"Four trades with four different managers in under three weeks. Acquired Sam LaPorta and Chris Olave at 12:14pm on Sep 15 and had flipped them for Brock Bowers by 3:08pm the same day." },
     { tier:"fun", title:"Blew it up", badge:"12 Moves",
-      team:"Windy City Winners", source:"Week 2",
+      team:"Bad News Bears!", source:"Week 2",
       detail:"Replaced his quarterback, kicker, defense, tight end and two receivers in three days. Starts Carson Wentz while Justin Herbert sits on his bench." },
     { tier:"good", title:"Turned one into two", badge:"1-for-2",
       team:"Sundae Best", source:"Week 2",
       detail:"Sent George Pickens out and got Jaylen Waddle and TreVeyon Henderson back, both of whom walked straight into the lineup." },
+
+    { tier:"bad", title:"Lowest score in league history", badge:"43.58",
+      team:"Bad News Bears!", source:"Week 2",
+      detail:"43.58 points. His highest scorer that week was Aaron Jones Sr. at 10.5. He renamed the team Bad News Bears the same morning." },
+    { tier:"bad", title:"Lost by two hundredths", badge:"Lost by 0.02",
+      team:"Bench Don't Kill My Vibe", source:"Week 3",
+      detail:"124.34 to 124.36. One more point from any of nine starters and she is still unbeaten." },
+    { tier:"good", title:"Perfect through three", badge:"3-0",
+      team:"Kirk Kuzzo's O'Block Apartment", source:"Weeks 1-3",
+      detail:"424.32 points scored, 237.86 allowed, and nine trades with five different managers. Nobody else has both the record and the margin." },
+    { tier:"good", title:"Also perfect through three", badge:"3-0",
+      team:"Ballin' Ass Ballers", source:"Weeks 1-3",
+      detail:"Three wins by a combined 57.78, including one by 0.02. Josh Allen and Davante Adams went for 80.32 together in Week 2." },
+    { tier:"fun", title:"Most points, fewest wins", badge:"Unlucky",
+      team:"Serving Punt", source:"Weeks 1-3",
+      detail:"400.54 points scored, third most in the liga, and a 1-2 record. Lost Week 2 to the highest score of the week and Week 3 by 1.34." },
+    { tier:"fun", title:"Scored 153 and 115 in losses", badge:"Wrong Weeks",
+      team:"CTE SQUAD", source:"Weeks 1-3",
+      detail:"Put up 115.88 in a Week 2 loss, then 153.48 for his first win. The points were always there, the timing was not." },
+
+    { tier:"fun", title:"Has never made a trade", badge:"No Trades",
+      team:"Ballin' Ass Ballers", source:"Weeks 1-3",
+      detail:"Eleven trades in the liga and Chris has not been in one. He is also 3-0, which is either the reason or a coincidence." },
 
     { tier:"fun", title:"Fearless", badge:"QB in the 2nd",
       team:"Ballin' Ass Ballers", source:"",
@@ -676,13 +874,14 @@ const LEAGUE = {
   ],
 
   records: [
-    { label: "Most points, one week",   holder: "Steven \u00b7 ChristianDiscord", value: "164.36", year: "Wk 1" },
-    { label: "Fewest points, one week", holder: "Eric \u00b7 Go Birds",           value: "84.56",  year: "Wk 1" },
-    { label: "Biggest blowout",         holder: "Steven over Eric",              value: "+79.80", year: "Wk 1" },
-    { label: "Closest margin",          holder: "Sylvia over Matt B.",           value: "3.96",   year: "Wk 1" },
-    { label: "Best single performance", holder: "Caleb Williams \u00b7 Steven",   value: "37.26",  year: "Wk 1" },
-    { label: "Longest win streak",      holder: "", value: "", year: "" },
-    { label: "Longest losing streak",   holder: "", value: "", year: "" },
+    { label: "Most points, one week",   holder: "Steven \u00b7 Kirk Kuzzo's O'Block Apartment", value: "164.36", year: "Wk 1" },
+    { label: "Fewest points, one week", holder: "Keegan \u00b7 Bad News Bears!",    value: "43.58",  year: "Wk 2" },
+    { label: "Biggest blowout",         holder: "Steven over Keegan",              value: "+85.94", year: "Wk 2" },
+    { label: "Closest margin",          holder: "Chris over Sylvia",               value: "0.02",   year: "Wk 3" },
+    { label: "Best single performance", holder: "Jaxon Smith-Njigba \u00b7 Matt B.", value: "42.5",   year: "Wk 2" },
+    { label: "Most points, season",     holder: "Steven",                          value: "424.32", year: "Wks 1-3" },
+    { label: "Longest win streak",      holder: "Steven and Chris",                value: "3",      year: "active" },
+    { label: "Longest losing streak",   holder: "Keegan and Eric",                 value: "3",      year: "active" },
     { label: "First champion",          holder: "", value: "", year: "" }
   ],
 
@@ -813,6 +1012,60 @@ tbody tr:last-child td{border-bottom:none}
 tbody tr:hover{background:rgba(224,26,118,.09)}
 .tm-name{font-weight:700; display:block; line-height:1.25}
 .mg-name{font-size:.76rem; opacity:.65}
+
+
+/* on the block */
+.blocknote{margin:0 0 20px; font-size:.86rem; color:var(--papel-2); opacity:.8}
+.blockgrid{display:grid; gap:16px; grid-template-columns:repeat(auto-fill,minmax(290px,1fr))}
+.bteam{background:var(--papel); color:var(--tinta); border:3px solid var(--tinta-3);
+  box-shadow:5px 5px 0 var(--oro); display:flex; flex-direction:column}
+.bteam .bh{background:var(--tinta-3); padding:10px 14px; display:flex;
+  justify-content:space-between; gap:10px; align-items:center}
+.bteam .bn{font-weight:700; font-size:.82rem; color:var(--papel); line-height:1.2;
+  overflow-wrap:anywhere}
+.bteam .bn span{display:block; font-weight:400; font-size:.71rem; color:var(--oro)}
+.bteam .bd{font-size:.68rem; color:var(--papel-2); opacity:.7; white-space:nowrap}
+.bteam table{width:100%; border-collapse:collapse}
+.bteam td{padding:7px 10px; border-bottom:1px solid var(--linea); font-size:.85rem}
+.bteam tr:last-child td{border-bottom:none}
+.bteam .bp{font-weight:700; background:var(--papel-2); width:44px;
+  text-align:center; font-size:.68rem}
+.bteam .bs{text-align:right; width:62px; font-size:.62rem; font-weight:700}
+.bteam .bs.start{color:var(--sangre)}
+.bteam .bs.bench{opacity:.4}
+.bteam .miss{padding:11px 14px; font-size:.8rem; font-style:italic; opacity:.6}
+.quiet{background:rgba(247,234,208,.06); border:2px dashed rgba(247,234,208,.3);
+  padding:15px 18px; font-size:.85rem; color:var(--papel-2); margin-top:18px}
+.quiet b{color:var(--oro); font-family:var(--display); font-size:.8rem;
+  display:block; margin-bottom:5px}
+
+/* trade wall */
+.wall{display:grid; gap:16px; grid-template-columns:repeat(auto-fill,minmax(330px,1fr))}
+.trade{background:var(--papel); color:var(--tinta); border:3px solid var(--tinta-3);
+  box-shadow:5px 5px 0 var(--jade); display:flex; flex-direction:column}
+.trade.veto{box-shadow:5px 5px 0 var(--sangre); opacity:.82}
+.trade .th{background:var(--tinta-3); padding:8px 14px; display:flex;
+  justify-content:space-between; gap:10px; align-items:center}
+.trade .th .wk{font-family:var(--display); color:var(--oro); font-size:.72rem}
+.trade .th .dt{font-size:.71rem; color:var(--papel-2); opacity:.75}
+.trade .vt{background:var(--sangre); color:#fff; font-size:.6rem; font-weight:700; padding:2px 6px}
+.trade .tb{display:grid; grid-template-columns:1fr 1fr}
+.trade .half{padding:13px 14px}
+.trade .half + .half{border-left:2px solid var(--linea); background:var(--papel-2)}
+.trade .tm{font-weight:700; font-size:.8rem; line-height:1.25; overflow-wrap:anywhere;
+  display:flex; gap:6px; align-items:baseline}
+.trade .mg{font-size:.72rem; opacity:.6; margin:1px 0 8px}
+.trade .got{font-family:var(--display); font-size:.58rem; color:var(--sangre);
+  letter-spacing:.4px; margin-bottom:4px}
+.trade ul{margin:0; padding-left:15px; font-size:.82rem}
+.trade ul li{margin-bottom:2px}
+.trade .tn{margin:0; padding:12px 14px; font-size:.82rem; font-style:italic;
+  border-top:2px solid var(--tinta-3)}
+.wallstat{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:22px}
+.wallstat div{background:rgba(247,234,208,.08); border:1px solid rgba(247,234,208,.22);
+  padding:9px 14px}
+.wallstat b{font-family:var(--display); color:var(--oro); font-size:1.15rem; display:block}
+.wallstat span{font-size:.75rem; opacity:.75}
 
 /* news */
 .newsfeed{display:grid; gap:18px; grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
@@ -1062,6 +1315,7 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
       <a href="#standings">Standings</a>
       <a href="#news">News</a>
       <a href="#schedule">Schedule</a>
+      <a href="#trades">Trades</a>
       <a href="#managers">Managers</a>
       <a href="#records">Records</a>
       <a href="#draft">Draft</a>
@@ -1104,7 +1358,19 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
       <h2>Las Noticias</h2>
       <p>Trades, waiver claims, and whatever else happens between Sundays.</p>
     </div>
+    <div class="wktabs" id="newsTabs" role="tablist" aria-label="News week"></div>
     <div class="newsfeed" id="newsBox"></div>
+  </div>
+</section>
+
+<section id="trades">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>El Muro</h2>
+      <p>Who is shopping what, and every deal that has actually closed.</p>
+    </div>
+    <div class="wktabs" id="wallTabs" role="tablist" aria-label="Trade view"></div>
+    <div id="wallBox"></div>
   </div>
 </section>
 
@@ -1311,74 +1577,162 @@ footer .fname{font-family:var(--display); color:var(--oro); font-size:1.1rem;
   });
   $("standingsBox").innerHTML = sHtml;
 
-  /* ---------- news ---------- */
-  var newsHtml = "";
-  (L.news||[]).forEach(function(n){
-    var li = (n.lines||[]).map(function(x){return '<li>' + esc(x) + '</li>';}).join("");
-    newsHtml += '<div class="nitem"><div class="nh">' +
-      '<span class="kind">' + esc(n.kind) + '</span>' +
-      '<span class="dt">' + esc(n.date) + '</span></div><div class="nb">' +
-      '<h4>' + esc(n.head) + '</h4>' +
-      (li ? '<ul>' + li + '</ul>' : "") +
-      (n.note ? '<p class="cm">' + esc(n.note) + '</p>' : "") +
-      '</div></div>';
+  /* ---------- news, grouped by week ---------- */
+  var news = L.news || [];
+  var newsWeeks = [];
+  news.forEach(function(n){
+    var w = (typeof n.wk === "number") ? n.wk : 0;
+    if (newsWeeks.indexOf(w) === -1) newsWeeks.push(w);
   });
-  $("newsBox").innerHTML = newsHtml;
+  newsWeeks.sort(function(a,b){ return b - a; });
+  var curNews = newsWeeks.indexOf(L.week) !== -1 ? L.week : newsWeeks[0];
 
-  /* ---------- schedule with week tabs ---------- */
-  var curWk = 0;
-  sched.forEach(function(w,i){ if (w.week === L.week) curWk = i; });
+  $("newsTabs").innerHTML = newsWeeks.map(function(w){
+    return '<button class="wktab" role="tab" data-nw="' + w + '" aria-selected="' +
+      (w === curNews) + '">' + (w === 0 ? "Preseason" : "Week " + w) + '</button>';
+  }).join("");
 
-  var tabsHtml = "";
-  sched.forEach(function(w,i){
-    tabsHtml += '<button class="wktab" role="tab" data-w="' + i + '" ' +
-      'aria-selected="' + (i===curWk) + '">Week ' + esc(w.week) + '</button>';
-  });
-  $("wkTabs").innerHTML = tabsHtml;
-
-  function teamSide(name, isHome, pts, played, won){
-    var m = byTeam[name];
-    var ic = '<span class="ic">' + esc(m ? m.icon : "") + '</span>';
-    var tn = '<span class="tn">' + esc(name) +
-             '<span>' + esc(m ? m.name : "") + '</span></span>';
-    var sc = played ? '<span class="sc"' + (won ? ' style="color:var(--jade)"' : '') +
-             '>' + fx(pts) + '</span>' : "";
-    return '<div class="side' + (isHome ? " h" : "") + '">' +
-      (isHome ? sc + tn + ic : ic + tn + sc) + '</div>';
+  function renderNews(w){
+    var items = news.filter(function(n){
+      return ((typeof n.wk === "number") ? n.wk : 0) === w; });
+    if (!items.length) {
+      $("newsBox").innerHTML = '<p class="nolu" style="grid-column:1/-1">' +
+        'Nothing happened this week. Suspicious.</p>';
+      return;
+    }
+    $("newsBox").innerHTML = items.map(function(n){
+      var li = (n.lines||[]).map(function(x){return '<li>' + esc(x) + '</li>';}).join("");
+      return '<div class="nitem"><div class="nh">' +
+        '<span class="kind">' + esc(n.kind) + '</span>' +
+        '<span class="dt">' + esc(n.date) + '</span></div><div class="nb">' +
+        '<h4>' + esc(n.head) + '</h4>' +
+        (li ? '<ul>' + li + '</ul>' : "") +
+        (n.note ? '<p class="cm">' + esc(n.note) + '</p>' : "") +
+        '</div></div>';
+    }).join("");
   }
-
-  function renderWeek(i){
-    var w = sched[i];
-    if (!w) { $("scheduleBox").innerHTML = ""; return; }
-    var lus = w.lineups || {};
-    var html = '<div class="games">';
-    (w.games||[]).forEach(function(g, gi){
-      var av = scoreOf(w, g, "away"), hv = scoreOf(w, g, "home");
-      var played = av !== null && hv !== null && (av !== 0 || hv !== 0);
-      var peek = lus[g.away] ? "Tap for full lineups"
-               : (g.awayTop ? "Tap for top performers" : "Not played yet");
-      html += '<button class="game" data-w="' + i + '" data-g="' + gi + '">' +
-        '<span class="vs">' +
-          teamSide(g.away, false, av, played, played && av > hv) +
-          '<span class="at">at</span>' +
-          teamSide(g.home, true, hv, played, played && hv > av) +
-        '</span>' +
-        '<span class="ln">' + esc(g.line) + '</span>' +
-        '<span class="peek">' + peek + '</span></button>';
-    });
-    $("scheduleBox").innerHTML = html + '</div>';
-  }
-
-  $("wkTabs").addEventListener("click", function(e){
+  $("newsTabs").addEventListener("click", function(e){
     var b = e.target.closest(".wktab");
     if (!b) return;
-    curWk = Number(b.dataset.w);
-    Array.prototype.forEach.call($("wkTabs").children, function(t,i){
-      t.setAttribute("aria-selected", i===curWk);
+    curNews = Number(b.dataset.nw);
+    Array.prototype.forEach.call($("newsTabs").children, function(t){
+      t.setAttribute("aria-selected", Number(t.dataset.nw) === curNews);
     });
-    renderWeek(curWk);
+    renderNews(curNews);
   });
-  renderWeek(curWk);
+  renderNews(curNews);
+
+  /* ---------- el muro: block tab + trades by week ---------- */
+  var trades = L.trades || [];
+  var block  = L.block  || [];
+
+  function findPlayer(team, name){
+    var m = byTeam[team];
+    if (!m) return null;
+    var hit = null;
+    (m.roster||[]).forEach(function(p){ if (p.player === name) hit = p; });
+    return hit;
+  }
+
+  function renderBlock(){
+    var html = '<p class="blocknote">Players their managers have flagged as available. ' +
+      'Starters are marked in red, because those cost more.</p><div class="blockgrid">';
+    block.forEach(function(b){
+      var m = byTeam[b.team];
+      var rows = (b.players||[]).map(function(name){
+        var p = findPlayer(b.team, name);
+        if (!p) {
+          return '<tr><td class="bp">--</td><td>' + esc(name) +
+            '</td><td class="bs bench">gone</td></tr>';
+        }
+        var starter = p.pos !== "BN" && p.pos !== "IR";
+        return '<tr><td class="bp">' + esc(starter ? p.pos : p.pos === "IR" ? "IR" : "BN") +
+          '</td><td>' + esc(name) + '</td>' +
+          '<td class="bs ' + (starter ? "start" : "bench") + '">' +
+          (starter ? "STARTER" : "bench") + '</td></tr>';
+      }).join("");
+      html += '<div class="bteam"><div class="bh">' +
+        '<div class="bn">' + esc(m ? m.icon + " " : "") + esc(b.team) +
+        '<span>' + esc(m ? m.name : "") + '</span></div>' +
+        '<span class="bd">' + esc(b.date) + '</span></div>' +
+        (rows ? '<table><tbody>' + rows + '</tbody></table>'
+              : '<p class="miss">Nothing listed.</p>') + '</div>';
+    });
+    html += '</div>';
+
+    var listed = {};
+    block.forEach(function(b){ listed[b.team] = true; });
+    var quiet = mgrs.filter(function(m){ return !listed[m.team]; })
+                    .map(function(m){ return m.name; });
+    if (quiet.length) {
+      html += '<div class="quiet"><b>Not shopping anybody</b>' +
+        esc(quiet.join(", ")) + '. Either happy with the roster or just not using the button.</div>';
+    }
+    $("wallBox").innerHTML = html;
+  }
+
+  function half(team, gets){
+    var m = byTeam[team];
+    return '<div class="half">' +
+      '<div class="tm"><span>' + esc(m ? m.icon : "") + '</span><span>' + esc(team) + '</span></div>' +
+      '<div class="mg">' + esc(m ? m.name : "") + '</div>' +
+      '<div class="got">RECEIVED</div><ul>' +
+      (gets||[]).map(function(p){ return '<li>' + esc(p) + '</li>'; }).join("") +
+      '</ul></div>';
+  }
+
+  function renderTradeWeek(w){
+    var items = trades.filter(function(t){ return (t.wk||0) === w; });
+    if (!items.length) {
+      $("wallBox").innerHTML = '<p class="quiet">No trades this week. It happens.</p>';
+      return;
+    }
+    var done = items.filter(function(t){ return !t.vetoed; }).length;
+    var moved = 0;
+    items.forEach(function(t){
+      if (!t.vetoed) moved += (t.aGets||[]).length + (t.bGets||[]).length; });
+    var head = '<div class="wallstat">' +
+      '<div><b>' + done + '</b><span>trade' + (done===1?"":"s") + ' completed</span></div>' +
+      '<div><b>' + moved + '</b><span>players moved</span></div>' +
+      (items.length > done ? '<div><b>' + (items.length-done) + '</b><span>vetoed</span></div>' : "") +
+      '</div>';
+    $("wallBox").innerHTML = head + '<div class="wall">' + items.map(function(t){
+      return '<div class="trade' + (t.vetoed ? " veto" : "") + '">' +
+        '<div class="th"><span class="wk">' + (t.wk === 0 ? "Preseason" : "Week " + esc(t.wk)) +
+        '</span>' + (t.vetoed ? '<span class="vt">VETOED</span>' : '') +
+        '<span class="dt">' + esc(t.date) + '</span></div>' +
+        '<div class="tb">' + half(t.a, t.aGets) + half(t.b, t.bGets) + '</div>' +
+        (t.note ? '<p class="tn">' + esc(t.note) + '</p>' : "") + '</div>';
+    }).join("") + '</div>';
+  }
+
+  var tradeWeeks = [];
+  trades.forEach(function(t){
+    var w = t.wk || 0;
+    if (tradeWeeks.indexOf(w) === -1) tradeWeeks.push(w);
+  });
+  tradeWeeks.sort(function(a,b){ return b - a; });
+
+  var nBlock = 0;
+  block.forEach(function(b){ nBlock += (b.players||[]).length; });
+  $("wallTabs").innerHTML =
+    '<button class="wktab" role="tab" data-tw="block" aria-selected="true">' +
+      'On the block (' + nBlock + ')</button>' +
+    tradeWeeks.map(function(w){
+      return '<button class="wktab" role="tab" data-tw="' + w + '" aria-selected="false">' +
+        (w === 0 ? "Preseason" : "Week " + w) + '</button>';
+    }).join("");
+
+  $("wallTabs").addEventListener("click", function(e){
+    var b = e.target.closest(".wktab");
+    if (!b) return;
+    Array.prototype.forEach.call($("wallTabs").children, function(t){
+      t.setAttribute("aria-selected", t === b);
+    });
+    if (b.dataset.tw === "block") renderBlock();
+    else renderTradeWeek(Number(b.dataset.tw));
+  });
+  renderBlock();
 
   /* ---------- draft board ---------- */
   var dHtml = "";
